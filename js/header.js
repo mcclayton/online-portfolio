@@ -1,13 +1,15 @@
 // DEVELOPER NOTE: header links should be added to the array below
   var headerItems = [
-  { text: "PORTFOLIO", target: "", newTab: false },
+  { text: "PORTFOLIO", target: "portfolio.html", newTab: false },
   { text: "RÉSUMÉ", target: "resume.html", newTab: false },
   { text: "CONTACT", target: "contact.html", newTab: false }
 ];
 
+var BRAND_TITLE = "About Me";
+
 function header() {
   var s = '<div class="navbar-inner"><div class="container-fluid"><button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">';
-  s += '<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="brand" href="index.html">About Me</a><div class="nav-collapse collapse">';
+  s += '<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="brand" href="index.html">'+BRAND_TITLE+'</a><div class="nav-collapse collapse">';
   s += '<ul class="nav">';
 
   for(var i=0; i<headerItems.length; i++) {

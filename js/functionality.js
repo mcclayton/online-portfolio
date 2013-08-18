@@ -16,11 +16,13 @@ function setSpeechBubbleText() {
    
    if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
      if (speechValue === "resume")
-       $("#speechBubbleText").html("Thanks for viewing my resume!");
+       $("#speechBubbleText").html("Thanks for viewing my résumé!");
     else if (speechValue === "contact")
        $("#speechBubbleText").html("I'd love to hear from you!");
     else if (speechValue === "about")
        $("#speechBubbleText").html("Enjoying your visit so far?<br><a class=\"btn btn-success btn-small\" onclick=\"selectYes()\">Yes</a><a class=\"btn btn-danger btn-small\" onclick=\"selectNo()\">No</a>");
+    else if (speechValue === "portfolio")
+      $("#speechBubbleText").html("These are just a select few of my projects,<br>and I am always working on more!");
    } else {
      $("#speechBubbleText").html("...<br>");
    }
