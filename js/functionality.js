@@ -39,6 +39,16 @@ function selectNo() {
   $("#speechBubbleText").html("Sorry to hear that. Please let me know why!<br><a href=\"contact.html\" class=\"btn btn-info btn-small\">Contact</a>");
 }
 
+// Position the refresh bar at the top of the screen but below the header
+function updateRefreshBarPosition() {
+    if (matchMedia('only screen and (max-width: 768px)').matches || matchMedia('only screen and (max-width: 979px)').matches) {
+      // Mobile screen mode
+     $('#portraitFooter').hide(0);
+    } else
+         $('#portraitFooter').show(0);
+      // Regular Browser
+}
+
 $(document).scroll(function(e) {
   setSpeechBubbleText();
 });
