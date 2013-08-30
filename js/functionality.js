@@ -40,7 +40,7 @@ function selectNo() {
 }
 
 // Position the refresh bar at the top of the screen but below the header
-function updateRefreshBarPosition() {
+function showOrHideFooter() {
     if (matchMedia('only screen and (max-width: 768px)').matches || matchMedia('only screen and (max-width: 979px)').matches) {
       // Mobile screen mode
      $('#portraitFooter').hide(0);
@@ -52,3 +52,9 @@ function updateRefreshBarPosition() {
 $(document).scroll(function(e) {
   setSpeechBubbleText();
 });
+
+$(document).ready(
+  function() {
+    showOrHideFooter();
+  }
+);
