@@ -11,29 +11,49 @@ function sendEmail() {
 }
 
 
-
-
+/*
+ * TITLE FUNCTIONS
+ */
 var currentCount = 0;
-
-var blinkTitle = function() {
-    var mainTitle = $('#mainTitle');
-    
+var blinkTitle = function(target, titleText) {    
     currentCount = (currentCount+1)%2;
     if (currentCount == 0) {
-        mainTitle.html("<FONT COLOR=\"f37b1d\">~</FONT><FONT COLOR=\"00f943\">$</FONT> Michael Clayton<FONT COLOR=\"ffffff\"> |</FONT>");
+        $(target).html("> "+titleText+"<FONT COLOR=\"ffffff\">_</FONT>");
     } else {
-        mainTitle.html("<FONT COLOR=\"f37b1d\">~</FONT><FONT COLOR=\"00f943\">$</FONT> Michael Clayton<FONT COLOR=\"00f943\"> |</FONT>");
+        $(target).html("> "+titleText+"_");
     }
 };
 
 // setTimeout Example
-var loopTitleBlink = function() {
-    blinkTitle();
-    setTimeout(loopTitleBlink, 700);
+var loopTitleBlink = function(target, titleText) {
+    blinkTitle(target, titleText);
+
+    setTimeout(function() {
+      loopTitleBlink(target, titleText);
+    }, 700);
 };
 
+var showText = function (target, titleText, index, interval) {    
+  $(target).html("> ");
+  var modText = titleText+"_";
+
+  if (index < modText.length) { 
+    for (var i=0; i<modText.length; i++) {
+      if (i<index) {
+        $(target).append(modText[i]);
+      } else if (i == index) {
+        $(target).append("_");
+      } else {
+        $(target).append("<FONT COLOR=\"ffffff\">"+modText[i-1]+"</FONT>");
+      }
+    }
+    index++;
+    setTimeout(function () { showText(target, titleText, index, interval); }, interval); 
+  } else {
+    loopTitleBlink(target, titleText);
+  } 
+};
 
 window.onload = function(){
-    $('#mainTitle').html("HI");
-    loopTitleBlink();
+  showText("#mainTitle", "Michael Clayton", 0, 75);
 };
