@@ -74,13 +74,12 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>
     <script src="./js/header.js"></script>
-    <script src="./js/functionality.js"></script>
     <script src="./js/loader.min.js"></script>
     <script src="./js/hover.js"></script>
     <script>
       // Fade the main div in
       $( document ).ready(function() {
-        $('#main_div').delay(500).fadeToggle(1000);
+        $('#main_div').delay(300).fadeToggle(1000);
       });
 
     // Analytics
@@ -89,8 +88,9 @@
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-48302579-1', 'michaelcclayton.com');
-  ga('send', 'pageview');
+    ga('create', 'UA-48302579-1', 'michaelcclayton.com');
+    ga('send', 'pageview');
   </script>
+  <script src="./js/functionality.js"></script>
   </body>
 </html>
