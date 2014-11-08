@@ -4872,6 +4872,16 @@ input[type="submit"].btn.btn-mini {
   color: #FFFFFF;
 }
 
+.brand {
+    background: url("../img/mcc.png") no-repeat center center;
+    height: 20px;
+    width: 100px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 .navbar-inverse .navbar-text {
   color: #FFFFFF;
 }

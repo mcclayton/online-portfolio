@@ -5,7 +5,7 @@
   { text: "CONTACT", target: "contact.html", newTab: false }
 ];
 
-var BRAND_TITLE = "About Me";
+var BRAND_TITLE = "";    // Blank because using 'mcc.png' image defined in bootstrap.css .brand
 
 function header() {
   var s = '<div class="navbar-inner"><div class="container-fluid"><button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">';
