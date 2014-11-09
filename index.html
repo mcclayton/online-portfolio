@@ -10,6 +10,8 @@
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/bootstrap-responsive.css" rel="stylesheet" />
     <link href="css/pastels.css" rel="stylesheet" />
+    <link href="css/carousel.css" rel="stylesheet" />
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -44,22 +46,75 @@
               <p class="lead"><blockquote>My name is <attention>Michael Clayton.</attention> I am a driven student majoring in computer science at Purdue University. I crave learning and love a challenge. I have a passion for software development and continually seek to push the boundaries of my knowledge and experience.</blockquote>
               </p>
               <hr>
-              <p>
-                <img src="./img/me/code.jpg" onmouseover="mouseOverImage('code', './img/me/code_hover.jpg')"  onmouseout="mouseOutImage('code', './img/me/code.jpg')" id="code">
-                <img src="./img/me/learn.jpg" onmouseover="mouseOverImage('learn', './img/me/learn_hover.jpg')"  onmouseout="mouseOutImage('learn', './img/me/learn.jpg')" id="learn">
-                <img src="./img/me/play.jpg" onmouseover="mouseOverImage('play', './img/me/play_hover.jpg')"  onmouseout="mouseOutImage('play', './img/me/play.jpg')" id="play">
-                <img src="./img/me/present.jpg" onmouseover="mouseOverImage('present', './img/me/present_hover.jpg')"  onmouseout="mouseOutImage('present', './img/me/present.jpg')" id="present">
-                <img src="./img/me/volunteer.jpg" onmouseover="mouseOverImage('volunteer', './img/me/volunteer_hover.jpg')"  onmouseout="mouseOutImage('volunteer', './img/me/volunteer.jpg')" id="volunteer">
-              </p>
-              <hr>
-              <a href="http://www.linkedin.com/in/michaelcclayton" target="_blank" class="transparent">
-                <img src="./img/linkedin_badge.png" width="50" height="50">
-              </a>
-              <a href="https://github.com/mcclayton" target="_blank" class="transparent">
-                <img src="./img/github_badge.png" width="50" height="50">
-              </a>
-            </center>
-          </div>
+
+              <!-- Carousel ================================================== -->
+              <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel" data-slide-to="1"></li>
+                  <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                  <div class="item active">
+                    <img src="./img/me/code.jpg">
+                    <div class="container">
+                      <div class="carousel-caption">
+                        <attention><FONT COLOR="ffffff">I <3 to Code</FONT></attention>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <img src="./img/me/learn.jpg">
+                      <div class="container">
+                        <div class="carousel-caption">
+                          <attention><FONT COLOR="ffffff">I <3 to Learn</FONT></attention>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="./img/me/play.jpg">
+                        <div class="container">
+                          <div class="carousel-caption">
+                            <attention><FONT COLOR="ffffff">I <3 to Play</FONT></attention>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <img src="./img/me/present.jpg">
+                          <div class="container">
+                            <div class="carousel-caption">
+                              <attention><FONT COLOR="ffffff">I <3 to Present</FONT></attention>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="item">
+                            <img src="./img/me/volunteer.jpg">
+                            <div class="container">
+                              <div class="carousel-caption">
+                                <attention><FONT COLOR="ffffff">I <3 to Volunteer</FONT></attention>
+                                </div>
+                              </div>
+                            </div>
+                    </div>
+                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                      <i class="fa fa-chevron-circle-left"></i>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                      <i class="fa fa-chevron-circle-right"></i>
+                    </a>
+                  </div><!-- /.carousel -->
+
+
+                <hr>
+                <a href="http://www.linkedin.com/in/michaelcclayton" target="_blank" class="transparent">
+                  <img src="./img/linkedin_badge.png" width="50" height="50">
+                </a>
+                <a href="https://github.com/mcclayton" target="_blank" class="transparent">
+                  <img src="./img/github_badge.png" width="50" height="50">
+                </a>
+              </center>
+            </div>
           <div>
             <!-- Enter any other information, if necessary. -->
           </div><!--/row-->
@@ -92,5 +147,12 @@
     ga('send', 'pageview');
   </script>
   <script src="./js/functionality.js"></script>
+  <script type='text/javascript'>
+    $(document).ready(function() {
+         $('.carousel').carousel({
+             interval: 5000
+         })
+    });
+    </script>
   </body>
 </html>
