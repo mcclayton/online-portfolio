@@ -4666,7 +4666,11 @@ input[type="submit"].btn.btn-mini {
   padding: 30px 20px 30px;
   color: #777777;
   text-decoration: none;
-  text-shadow: 0 1px 0 #ffffff;
+  text-shadow: 0 1px 0 #ffffff; 
+  -webkit-transition: all ease .3s;
+  -moz-transition: all ease .3s;
+  -o-transition: all ease .3s;
+  transition: all ease .3s;
 }
 
 .navbar .nav .dropdown-toggle .caret {
