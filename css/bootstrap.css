@@ -5803,6 +5803,10 @@ a.badge:focus {
   background-color: #1a1a1a;
 }
 
+.inactive {
+  opacity: 0.4;
+}
+
 .btn .label,
 .btn .badge {
   position: relative;
