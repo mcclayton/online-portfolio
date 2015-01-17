@@ -66,7 +66,8 @@
                 <span class="label label-danger filter-inactive">Corporate</span>
             </blockquote>
             <hr>
-
+			
+			<div class="hackathon-filter">
               <h4><i class="fa fa-android"></i> Media Matrix</h4>
               <i>Oct. 17, 2014 – Oct. 19, 2014</i>
               <br>Team Members: <i>Michael Clayton, Sam Dickson, Niraj Venkat</i>
@@ -94,9 +95,10 @@
                     </a>
                   </li>
                 </ul>
-
                 &nbsp;<hr>
-
+            </div> <!-- end filter -->
+                
+            <div class="mobile-filter" style="display:none;">
                 <h4><i class="fa fa-clock-o"></i> Pebble Watchfaces</h4>
                 <i>May 9, 2014</i>
                 <p><small>Language(s): C</small>
@@ -118,9 +120,8 @@
                             </a>
                         </li>
                     </ul>
-
                     &nbsp;<hr>
-
+            </div> <!-- end filter -->
 
                 <h4><i class="fa fa-android"></i> Wifil</h4>
                 <i>Aug. 26, 2013 – Dec. 4, 2013</i>
@@ -305,5 +306,16 @@
   ga('create', 'UA-48302579-1', 'michaelcclayton.com');
   ga('send', 'pageview');
     </script>
+    <script>
+      $(".label").click(function() {
+		// Make all the labels inactive
+		$(".label").addClass("filter-inactive");
+		
+		// Make the clicked label active
+		$(this).toggleClass("filter-inactive");
+        
+      });
+    </script>
+    
   </body>
 </html>
