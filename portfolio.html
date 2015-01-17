@@ -60,14 +60,14 @@
             <blockquote>
                 <strong>Filter Projects By:</strong>  
                 <span class="label label-info filter">All</span>
-                <span class="label label-primary filter-inactive">Hackathons</span>
+                <span class="label label-danger filter-inactive">Professional</span>
                 <span class="label label-success filter-inactive">Mobile</span>
-                <span class="label label-warning filter-inactive">University</span>
-                <span class="label label-danger filter-inactive">Corporate</span>
+                <span class="label label-warning filter-inactive">Hackathons</span>
+                <span class="label label-primary filter-inactive">Other</span>
             </blockquote>
             <hr>
 			
-			<div class="hackathon-filter">
+			<div class="hackathon-filter mobile-filter">
               <h4><i class="fa fa-android"></i> Media Matrix</h4>
               <i>Oct. 17, 2014 – Oct. 19, 2014</i>
               <br>Team Members: <i>Michael Clayton, Sam Dickson, Niraj Venkat</i>
@@ -123,6 +123,7 @@
                     &nbsp;<hr>
             </div> <!-- end filter -->
 
+            <div class="mobile-filter">
                 <h4><i class="fa fa-android"></i> Wifil</h4>
                 <i>Aug. 26, 2013 – Dec. 4, 2013</i>
                 <br>Team Members: <i>Michael Clayton, Billy King, Brandan Miller, and Bakytzhan Kudebayev</i>
@@ -155,9 +156,10 @@
                             </a>
                         </li>
                     </ul>
-
                     &nbsp;<hr>
+            </div> <!-- end filter -->
 
+            <div class="professional-filter">
                 <h4><i class="fa fa-cloud"></i> Server Monitoring Dashboard</h4>
                 <i>May 28, 2013 – Aug. 9, 2013</i>
                 <br>Employer: <i>ExactTarget, a salesforce.com company</i>
@@ -190,9 +192,10 @@
                         Download Video of Demo
                      </a>
                     </center>
-
                 <hr>
-
+			</div> <!-- end filter -->
+ 
+            <div class="mobile-filter">
                 <h4><i class="fa fa-android"></i> BlockWords</h4>
                 <i>May 11, 2013 – May 27, 2013</i>
                 <p><small>Language(s): Java, XML</small>
@@ -227,7 +230,9 @@
                         </a>
                     </center>
                     &nbsp;<hr>
+            </div> <!-- end filter -->
 
+			<div class="other-filter">
                 <h4><i class="fa fa-desktop"></i> Map Viewer and Map Editor</h4>
                 <i>March 25, 2013 - April 22, 2013</i>
                 <p><small>Language(s): Java</small></p>
@@ -242,24 +247,29 @@
                     	</li>
                     </ul>
                     &nbsp;<hr>
+            </div> <!-- end filter -->        
 
+			<div class="other-filter">
                 <h4><i class="fa fa-terminal"></i> Stock Market Tracker</h4>
                 <i>March 5, 2013 – March 18, 2013</i>
                 <p><small>Language(s): Java</small></p>
                 <p>
                     Created a program that scrapes data from Google finance, monitors it, and records figures such as extreme highs and lows of stocks prices to a text file.
                 </p>
-
                 <hr>
+            </div> <!-- end filter -->                        
 
+			<div class="other-filter">
                 <h4><i class="fa fa-terminal"></i> Mock High-frequency Trading Application</h4>
                 <i>Oct. 31, 2012 – Dec. 1, 2012</i>
                 <p><small>Language(s): C</small></p>
                 <p>
                     Created a multi-threaded program, utilizing POSIX threads, which concurrently reads in trading commands from a binary file; processes them; determines the inside quote; and outputs the order book data to a file. (Made for 32-bit machines running Linux)
                 </p>
-
                 <hr>
+            </div> <!-- end filter --> 
+            
+			<div class="other-filter">             
                 <h4><i class="fa fa-terminal"></i> NxN Matrix Determinant Calculator</h4>
                 <i>Aug. 15, 2012 – Oct. 19, 2012</i>
                 <p><small>Language(s): Java</small></p>
@@ -278,6 +288,7 @@
                         </div>
                         </div>
                         &nbsp;<hr>
+            </div> <!-- end filter --> 
 
           </div>
           <div>
@@ -308,11 +319,33 @@
     </script>
     <script>
       $(".label").click(function() {
-		// Make all the labels inactive
-		$(".label").addClass("filter-inactive");
+		if ($(this).hasClass("filter-inactive") == true) {
+			// Make all the labels inactive
+			$(".label").addClass("filter-inactive");
+			// Make the clicked label active
+			$(this).toggleClass("filter-inactive");
 		
-		// Make the clicked label active
-		$(this).toggleClass("filter-inactive");
+			// Make all projects inactive
+			$(".professional-filter").fadeOut();
+			$(".hackathon-filter").fadeOut();
+			$(".mobile-filter").fadeOut();
+			$(".other-filter").fadeOut();
+			
+			if ($(this).text() === "Professional" || $(this).text() === "All") {
+				$(".professional-filter").fadeIn();
+		    }
+			if ($(this).text() === "Hackathons" || $(this).text() === "All") {
+				$(".hackathon-filter").fadeIn();
+		    } 
+		    if ($(this).text() === "Mobile" || $(this).text() === "All") {
+				$(".mobile-filter").fadeIn();
+		    } 
+		    if ($(this).text() === "Other" || $(this).text() === "All") {
+				$(".other-filter").fadeIn();
+		    }
+			
+			// TODO: Re-highlight selected projects
+		}
         
       });
     </script>
