@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
 const redirectToZola = () => {
-  window.location = 'https://www.zola.com/wedding/michael-elissa';
+  window.location = 'https://www.zola.com/wedding/michael-elissa/rsvp';
 };
 
 const RedirectionBody = () => (
