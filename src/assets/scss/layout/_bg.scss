@@ -45,8 +45,14 @@
 			@include vendor('transition', (
 				'transform #{_duration(article)} ease-in-out',
 				'filter #{_duration(article)} ease-in-out'
-			));
-			background-image:		url('../../images/bg.jpg');
+      ));
+      @media (min-width: 601px) {
+        background-image:		url('../../images/bg.jpg');
+      }
+
+      @media (max-width: 600px) {
+        background-image:		url('../../images/bg_mobile.jpg');
+      }
 			background-position:	center;
 			background-size:		cover;
 			background-repeat:		no-repeat;
@@ -65,4 +71,4 @@
 				background-color:	_palette(bg-alt);
 			}
 		}
-	}
+  }
