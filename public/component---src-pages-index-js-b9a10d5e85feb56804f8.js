@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{RXBc:function(n,e,t){"use strict";t.r(e);var c=t("q1tI"),i=t.n(c);e.default=function(){return Object(c.useEffect)((function(){window.location="https://www.zola.com/wedding/michael-elissa"}),[]),i.a.createElement("div",null)}}}]);
+//# sourceMappingURL=component---src-pages-index-js-b9a10d5e85feb56804f8.js.map
