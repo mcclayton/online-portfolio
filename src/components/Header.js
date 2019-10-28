@@ -19,7 +19,7 @@ const Body = ({ onRedirect }) => (
   <div className="content">
     <div className="inner">
       <h1>Elissa & Michael</h1>
-      <h2>March, 7 2020</h2>
+      <h2>March, 7 2020 @ 4:00pm</h2>
       <h3>The Carousel House, Santa Barbara</h3>
       <button onClick={onRedirect}>
         <span className="icon fa-pencil" style={{ paddingRight: '1rem' }}></span>
