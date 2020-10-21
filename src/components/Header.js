@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import Button from './Button';
 import mccPath from '../images/mcc.png';
 
 const Header = props => (
@@ -18,40 +19,40 @@ const Header = props => (
     <nav>
       <ul>
         <li>
-          <button
-            onClick={() => {
-              props.onOpenArticle('intro')
-            }}
-          >
-            Intro
-          </button>
+        <Button
+          onClick={() => {
+            props.onOpenArticle('intro')
+          }}
+        >
+          Intro
+        </Button>
         </li>
         <li>
-          <button
+          <Button
             onClick={() => {
               props.onOpenArticle('work')
             }}
           >
             Work
-          </button>
+          </Button>
         </li>
         <li>
-          <button
+          <Button
             onClick={() => {
               props.onOpenArticle('about')
             }}
           >
             About
-          </button>
+          </Button>
         </li>
         <li>
-          <button
+          <Button
             onClick={() => {
               props.onOpenArticle('contact')
             }}
           >
             Contact
-          </button>
+          </Button>
         </li>
       </ul>
     </nav>
