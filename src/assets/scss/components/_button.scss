@@ -198,5 +198,5 @@
 }
 
 .btn {
-  @include btn-border-slide(rgba(255,255,255, 0.5), rgba(255,255,255, 0.8), 2px, 0.5s);
+  @include btn-border-slide(rgba(255,255,255, 0.4), rgba(255,255,255, 0.8), 2px, 0.5s);
 }
