@@ -6,197 +6,75 @@
 
 /* Button */
 
-	input[type="submit"],
-	input[type="reset"],
-	input[type="button"],
-	button,
-	.button {
-		@include vendor('appearance', 'none');
-		@include vendor('transition', 'background-color #{_duration(transition)} ease-in-out, color #{_duration(transition)} ease-in-out');
-		background-color: transparent;
-		border-radius: _size(border-radius);
-		border: 0;
-		box-shadow: inset 0 0 0 _size(border-width) _palette(border);
-		color: _palette(fg-bold) !important;
-		cursor: pointer;
-		display: inline-block;
-		font-size: 0.8rem;
-		font-weight: _font(weight-bold);
-		height: _size(element-height);
-		letter-spacing: _font(letter-spacing);
-		line-height: _size(element-height);
-		outline: 0;
-		padding: 0 1.25rem 0 (1.25rem + (_font(letter-spacing) * 0.5));
-		text-align: center;
-		text-decoration: none;
-    text-transform: uppercase;
-		white-space: nowrap;
-
-		&:hover {
-			background-color: _palette(border-bg);
-		}
-
-		&:active {
-			background-color: _palette(border-bg-alt);
-		}
-
-		&.icon {
-			&:before {
-				margin-right: 0.5em;
-			}
-		}
-
-		&.fit {
-			display: block;
-			margin: 0 0 (_size(element-margin) * 0.5) 0;
-			width: 100%;
-		}
-
-		&.special {
-			background-color: _palette(fg-bold);
-			color: _palette(bg) !important;
-			font-weight: _font(weight-bold);
-
-			&:hover {
-			}
-
-			&:active {
-			}
-		}
-
-		&.disabled,
-		&:disabled {
-			@include vendor('pointer-events', 'none');
-			cursor: default;
-			opacity: 0.25;
-		}
-	}
-
-	input[type="submit"],
-	input[type="reset"],
-	input[type="button"],
-	button {
-		line-height: calc(#{_size(element-height)} - 2px);
-	}
-
-@mixin btn-border-slide($color, $hoverColor, $borderWidth, $time) {
-  $easing: cubic-bezier(0.4, 0, 0.2, 1);
-
-  position: relative;
-
-  display: inline-block;
-  padding: 0.5em 2em;
-
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button,
+.button {
+  @include vendor('appearance', 'none');
+  @include vendor('transition', 'background-color #{_duration(transition)} ease-in-out, color #{_duration(transition)} ease-in-out');
+  background-color: transparent;
+  border-radius: _size(border-radius);
+  border: 0;
+  box-shadow: inset 0 0 0 _size(border-width) _palette(border);
+  color: _palette(fg-bold) !important;
   cursor: pointer;
-  overflow: hidden;
-
-  &:before,
-  &:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    height: $borderWidth;
-    width: 100%;
-    background-color: $color;
-  }
-
-  &:before {
-    top: 0;
-  }
-
-  &:after {
-    bottom: 0;
-  }
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: _font(weight-bold);
+  height: _size(element-height);
+  letter-spacing: _font(letter-spacing);
+  line-height: _size(element-height);
+  outline: 0;
+  padding: 0 1.25rem 0 (1.25rem + (_font(letter-spacing) * 0.5));
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
 
   &:hover {
-    & > * {
-      & > * {
-        &:before,
-        &:after {
-          transform: translate3d(0, 0, 0);
-        }
+    background-color: _palette(border-bg);
+  }
 
-        & > * {
-          &:before,
-          &:after {
-            transform: translate3d(0, 0, 0);
-          }
-        }
-      }
+  &:active {
+    background-color: _palette(border-bg-alt);
+  }
+
+  &.icon {
+    &:before {
+      margin-right: 0.5em;
     }
   }
 
-  & > * {
-    &:before,
-    &:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      height: 100%;
-      width: $borderWidth;
-      background-color: $color;
+  &.fit {
+    display: block;
+    margin: 0 0 (_size(element-margin) * 0.5) 0;
+    width: 100%;
+  }
+
+  &.special {
+    background-color: _palette(fg-bold);
+    color: _palette(bg) !important;
+    font-weight: _font(weight-bold);
+
+    &:hover {
     }
 
-    &:before {
-      left: 0;
+    &:active {
     }
+  }
 
-    &:after {
-      right: 0;
-    }
-
-    & > * {
-      &:before,
-      &:after {
-        content: "";
-        position: absolute;
-        left: 0;
-        z-index: 9;
-        height: $borderWidth;
-        width: 100%;
-        background-color: $hoverColor;
-      }
-
-      &:before {
-        top: 0;
-        transform: translate3d(-105%, 0, 0);
-        transition: transform $time $easing;
-      }
-
-      &:after {
-        bottom: 0;
-        transform: translate3d(105%, 0, 0);
-        transition: transform $time $easing;
-      }
-
-      & > * {
-        &:before,
-        &:after {
-          content: "";
-          position: absolute;
-          top: 0;
-          z-index: 9;
-          height: 100%;
-          width: $borderWidth;
-          background-color: $hoverColor;
-        }
-
-        &:before {
-          left: 0;
-          transform: translate3d(0, 105%, 0);
-          transition: transform $time $easing;
-        }
-
-        &:after {
-          right: 0;
-          transform: translate3d(0, -105%, 0);
-          transition: transform $time $easing;
-        }
-      }
-    }
+  &.disabled,
+  &:disabled {
+    @include vendor('pointer-events', 'none');
+    cursor: default;
+    opacity: 0.25;
   }
 }
 
-.btn {
-  @include btn-border-slide(rgba(255,255,255, 0.4), rgba(255,255,255, 0.8), 2px, 0.5s);
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+  line-height: calc(#{_size(element-height)} - 2px);
 }

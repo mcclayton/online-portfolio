@@ -1,16 +1,19 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Button from './Button';
-import mccPath from '../images/mcc.png';
+import Button from '../Button';
+import logo from '../../images/mcc.png';
+import portrait from '../../images/portrait.png';
+import styles from './styles.module.scss';
 
 const Header = props => (
   <header id="header" style={props.timeout ? { display: 'none' } : {}}>
     <div className="content">
       <div className="inner">
         <p>
-          <img src={mccPath} alt="MCC Initials" width="150px" />
+          <img src={logo} alt="MCC Initials" width="150px" />
           <h1>Michael C. Clayton</h1>
-          <p style={{ borderLeft: 'solid 3px rgba(40,45,40,30)', paddingLeft: '10px' }}>
+          <img src={portrait} alt="Portrait Avatar" className={styles.avatar} />
+          <p>
             "If you don’t work on important problems, it’s not likely that you’ll do important work." —Richard Hamming
           </p>
         </p>
@@ -57,11 +60,11 @@ const Header = props => (
       </ul>
     </nav>
   </header>
-)
+);
 
 Header.propTypes = {
   onOpenArticle: PropTypes.func,
   timeout: PropTypes.bool,
-}
+};
 
-export default Header
+export default Header;

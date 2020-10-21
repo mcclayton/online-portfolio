@@ -40,12 +40,9 @@
   > * {
     @include vendor('transition', 'opacity #{_duration(article)} ease-in-out');
     position: relative;
-    margin-top: 3.5rem;
   }
 
   > :first-child {
-    margin-top: 0;
-
     &:before {
       display: none;
     }
@@ -156,8 +153,6 @@
 
   @include breakpoint(small) {
     > * {
-      margin-top: 2rem;
-
       &:before {
         top: calc(-2rem - 1px);
         height: calc(2rem + 1px);
