@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import Layout from '../components/layout'
 
-const NotFoundPage = () => {
-  useEffect(() => {
-    const path = window.location.pathname;
-    window.location = `https://www.zola.com/wedding/michael-elissa${path}`;
-  }, []);
-
-  return (<div />);
-}
+const NotFoundPage = () => (
+  <Layout>
+    <h1>NOT FOUND</h1>
+    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+  </Layout>
+)
 
 export default NotFoundPage

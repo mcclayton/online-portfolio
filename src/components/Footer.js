@@ -1,13 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PT from 'prop-types';
 
-const Footer = (props) => (
-    <footer id="footer" style={props.timeout ? {display: 'none'} : {}}>
+function Footer(props) {
+  return (
+    <footer id="footer" style={props.timeout ? { display: 'none' } : {}}>
+      Michael Clayton
     </footer>
-)
-
-Footer.propTypes = {
-    timeout: PropTypes.bool
+  );
 }
 
-export default Footer
+Footer.propTypes = {
+  timeout: PT.bool
+};
+
+export default Footer;

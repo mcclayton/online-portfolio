@@ -1,57 +1,66 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import React from 'react';
+import mccPath from '../images/mcc.png';
 
-const redirectToZola = () => {
-  window.location = 'https://www.zola.com/wedding/michael-elissa/rsvp';
-};
-
-const RedirectionBody = () => (
-  <h1>
-    <span className="icon fa-heart" style={{ color: '#EC565A', fontSize: '15rem' }}></span>
-  </h1>
-);
-
-const Body = ({ onRedirect }) => (
-  <React.Fragment>
-  <div className="logo">
-    <span className="icon fa-heart"></span>
-  </div>
-  <div className="content">
-    <div className="inner">
-      <h1>Elissa & Michael</h1>
-      <h2>March, 7 2020 @ 4:00pm</h2>
-      <h3>The Carousel House, Santa Barbara</h3>
-      <button onClick={onRedirect}>
-        <span className="icon fa-pencil" style={{ paddingRight: '1rem' }}></span>
-        RSVP Form
-      </button>
+const Header = props => (
+  <header id="header" style={props.timeout ? { display: 'none' } : {}}>
+    <div className="content">
+      <div className="inner">
+        <p>
+          <img src={mccPath} alt="MCC Initials" width="150px" />
+          <h1>Michael C. Clayton</h1>
+          <p style={{ borderLeft: 'solid 3px rgba(40,45,40,30)', paddingLeft: '10px' }}>
+            "If you don’t work on important problems, it’s not likely that you’ll do important work." —Richard Hamming
+          </p>
+        </p>
+      </div>
     </div>
-  </div>
-  </React.Fragment>
-);
-
-const Header = (props) => {
-  const [state, setState] = useState({ redirecting: false });
-
-  const redirect = () => {
-    setState({ redirecting: true })
-    redirectToZola();
-  };
-
-  return (
-    <header id="header" style={props.timeout ? { display: 'none' } : {}}>
-      {
-        state.redirecting ? (<RedirectionBody />) : (
-          <Body onRedirect={redirect} />
-        )
-      }
-    </header>
-  )
-}
+    <nav>
+      <ul>
+        <li>
+          <button
+            onClick={() => {
+              props.onOpenArticle('intro')
+            }}
+          >
+            Intro
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => {
+              props.onOpenArticle('work')
+            }}
+          >
+            Work
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => {
+              props.onOpenArticle('about')
+            }}
+          >
+            About
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => {
+              props.onOpenArticle('contact')
+            }}
+          >
+            Contact
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+)
 
 Header.propTypes = {
-    onOpenArticle: PropTypes.func,
-    timeout: PropTypes.bool
+  onOpenArticle: PropTypes.func,
+  timeout: PropTypes.bool,
 }
 
 export default Header
