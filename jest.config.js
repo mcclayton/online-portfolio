@@ -1,10 +1,8 @@
 module.exports = {
-  testEnvironment: 'node',
-  transform: {
-    "^.+\\.ts?$": 'ts-jest',
-    '^.+\\.js?$': 'babel-jest',
+  transformIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/public/'],
+  "moduleNameMapper": {
+    "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
   },
-  transformIgnorePatterns: ['<rootDir>/node_modules/'],
   moduleFileExtensions: [
     "ts",
     "js",
