@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Button from '../Button';
-import logo from '../../images/mcc.png';
+import InitialsLogo from '../InitialsLogo';
 import portrait from '../../images/portrait.png';
 import styles from './styles.module.scss';
 
@@ -10,7 +10,7 @@ const Header = props => (
     <div className="content">
       <div className="inner">
         <p>
-          <img src={logo} alt="MCC Initials" width="150px" />
+          <InitialsLogo width="150px" />
           <h1>Michael C. Clayton</h1>
           <img src={portrait} alt="Portrait Avatar" className={styles.avatar} />
           <p>
