@@ -5,8 +5,8 @@
 <svg xmlns="http://www.w3.org/2000/svg"
      width="0.688074in" height="0.474007in"
      viewBox="0 0 225 155">
-  <path id="MCCLogo" class="drawSVGPath"
-        fill="none" stroke="white" stroke-width="2"
+  <path id="MCCLogo"
+        fill="none" stroke="black" stroke-width="5"
         d="M 83.72,37.00
            C 83.72,37.00 95.28,24.00 95.28,24.00
              98.39,20.46 108.24,8.64 111.98,7.40
