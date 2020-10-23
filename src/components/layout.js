@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
-import { PARTY_HORSE_HTML_COMMENT } from '../constants';
+import { PARTY_HORSE, PARTY_HORSE_HTML_COMMENT } from '../constants';
 
 import '../assets/scss/main.scss'
 
@@ -25,6 +25,10 @@ const Layout = ({ children, location }) => {
       </div>
     )
   }
+
+  React.useEffect(() => {
+    console.log(PARTY_HORSE);
+  }, []);
 
   return (
     <StaticQuery
