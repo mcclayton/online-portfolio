@@ -5,103 +5,92 @@ import pic01 from '../images/pic01.jpg'
 import pic02 from '../images/pic02.jpg'
 import pic03 from '../images/pic03.jpg'
 
-class Main extends React.Component {
-  render() {
-    let close = (
-      <div
-        className="close"
-        onClick={() => {
-          this.props.onCloseArticle()
-        }}
-      ></div>
-    )
-
-    return (
-      <div
-        ref={this.props.setWrapperRef}
-        id="main"
-        style={this.props.timeout ? { display: 'flex' } : { display: 'none' }}
+function Main(props) {
+  return (
+    <div
+      ref={props.setWrapperRef}
+      id="main"
+      style={props.timeout ? { display: 'flex' } : { display: 'none' }}
+    >
+      <Article
+        id="intro"
+        title="Intro"
+        img={pic01}
+        onCloseArticle={props.onCloseArticle}
+        className={`${props.article === 'intro' ? 'active' : ''} ${
+          props.articleTimeout ? 'timeout' : ''
+        }`}
       >
-        <Article
-          id="intro"
-          title="Intro"
-          img={pic01}
-          onCloseArticle={this.props.onCloseArticle}
-          className={`${this.props.article === 'intro' ? 'active' : ''} ${
-            this.props.articleTimeout ? 'timeout' : ''
-          }`}
-        >
-          <p>
-            My name is Michael Clayton.
-            I graduated from Purdue University with a Bachelor of Science in Computer Science.
-            I crave learning and love a challenge.
-            I have a passion for software development and continually seek to
-            push the boundaries of my knowledge and experience.
-          </p>
-        </Article>
+        <p>
+          My name is Michael Clayton.
+          I graduated from Purdue University with a Bachelor of Science in Computer Science.
+          I crave learning and love a challenge.
+          I have a passion for software development and continually seek to
+          push the boundaries of my knowledge and experience.
+        </p>
+      </Article>
 
-        <Article
-          id="work"
-          title="Work"
-          img={pic02}
-          onCloseArticle={this.props.onCloseArticle}
-          className={`${this.props.article === 'work' ? 'active' : ''} ${
-            this.props.articleTimeout ? 'timeout' : ''
-          }`}
-        >
-          <p>
-            ...
-          </p>
-        </Article>
+      <Article
+        id="work"
+        title="Work"
+        img={pic02}
+        onCloseArticle={props.onCloseArticle}
+        className={`${props.article === 'work' ? 'active' : ''} ${
+          props.articleTimeout ? 'timeout' : ''
+        }`}
+      >
+        <p>
+          ...
+        </p>
+      </Article>
 
-       <Article
-          id="about"
-          title="About"
-          img={pic03}
-          onCloseArticle={this.props.onCloseArticle}
-          className={`${this.props.article === 'about' ? 'active' : ''} ${
-            this.props.articleTimeout ? 'timeout' : ''
-          }`}
-        >
-          <p>
-            ...
-          </p>
-        </Article>
+      <Article
+        id="about"
+        title="About"
+        img={pic03}
+        onCloseArticle={props.onCloseArticle}
+        className={`${props.article === 'about' ? 'active' : ''} ${
+          props.articleTimeout ? 'timeout' : ''
+        }`}
+      >
+        <p>
+          ...
+        </p>
+      </Article>
 
-        <Article
-          id="contact"
-          title="Contact"
-          onCloseArticle={this.props.onCloseArticle}
-          className={`${this.props.article === 'contact' ? 'active' : ''} ${
-            this.props.articleTimeout ? 'timeout' : ''
-          }`}
-        >
-          <form method="post" action="#">
-            <div className="field half first">
-              <label htmlFor="name">Name</label>
-              <input type="text" name="name" id="name" />
-            </div>
-            <div className="field half">
-              <label htmlFor="email">Email</label>
-              <input type="text" name="email" id="email" />
-            </div>
-            <div className="field">
-              <label htmlFor="message">Message</label>
-              <textarea name="message" id="message" rows="4"></textarea>
-            </div>
-            <ul className="actions">
-              <li>
-                <input type="submit" value="Send Message" className="special" />
-              </li>
-              <li>
-                <input type="reset" value="Reset" />
-              </li>
-            </ul>
-          </form>
-        </Article>
-      </div>
-    )
-  }
+      <Article
+        id="contact"
+        title="Contact"
+        onCloseArticle={props.onCloseArticle}
+        className={`${props.article === 'contact' ? 'active' : ''} ${
+          props.articleTimeout ? 'timeout' : ''
+        }`}
+      >
+        <form method="post" action="#">
+          <div className="field half first">
+            <label htmlFor="name">Name</label>
+            <input type="text" name="name" id="name" />
+          </div>
+          <div className="field half">
+            <label htmlFor="email">Email</label>
+            <input type="text" name="email" id="email" />
+          </div>
+          <div className="field">
+            <label htmlFor="message">Message</label>
+            <textarea name="message" id="message" rows="4"></textarea>
+          </div>
+          <ul className="actions">
+            <li>
+              <input type="submit" value="Send Message" className="special" />
+            </li>
+            <li>
+              <input type="reset" value="Reset" />
+            </li>
+          </ul>
+        </form>
+      </Article>
+    </div>
+  );
 }
 
 Main.propTypes = {
@@ -111,6 +100,6 @@ Main.propTypes = {
   onCloseArticle: PropTypes.func,
   timeout: PropTypes.bool,
   setWrapperRef: PropTypes.func.isRequired,
-}
+};
 
-export default Main
+export default Main;

@@ -7,15 +7,13 @@ import { PARTY_HORSE, PARTY_HORSE_HTML_COMMENT } from '../constants';
 import '../assets/scss/main.scss'
 
 const Layout = ({ children, location }) => {
-
   let content;
-
   if (location && location.pathname === '/') {
     content = (
       <div>
         {children}
       </div>
-    )
+    );
   } else {
     content = (
       <div id="wrapper" className="page">
@@ -23,7 +21,7 @@ const Layout = ({ children, location }) => {
           {children}
         </div>
       </div>
-    )
+    );
   }
 
   React.useEffect(() => {
@@ -64,6 +62,6 @@ const Layout = ({ children, location }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;

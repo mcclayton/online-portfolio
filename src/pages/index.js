@@ -105,11 +105,11 @@ class IndexPage extends React.Component {
             />
             <Footer timeout={this.state.timeout} />
           </div>
-          <div id="bg"></div>
+          <div id="bg" />
         </div>
       </Layout>
     )
   }
 }
 
-export default IndexPage
+export default IndexPage;
