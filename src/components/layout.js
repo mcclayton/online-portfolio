@@ -1,7 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
+import { StaticQuery, graphql } from 'gatsby';
+import { PARTY_HORSE_HTML_COMMENT } from '../constants';
 
 import '../assets/scss/main.scss'
 
@@ -41,18 +42,13 @@ const Layout = ({ children, location }) => {
           <Helmet
             title={data.site.siteMetadata.title}
             meta={[
-              { name: 'description', content: 'Sample' },
-              { name: 'keywords', content: 'sample, something' },
+              { name: 'party_horse', content: PARTY_HORSE_HTML_COMMENT },
+              { name: 'description', content: `Michael Clayton's Online Portfolio` },
+              { name: 'keywords', content: 'portfolio, michael, clayton, michael c. clayton, software engineer' },
             ]}
           >
             <html lang="en">
-              {
-                `
-                  <!--
-                    Nice
-                  -->
-                `
-              }
+              {PARTY_HORSE_HTML_COMMENT}
             </html>
           </Helmet>
           {content}
