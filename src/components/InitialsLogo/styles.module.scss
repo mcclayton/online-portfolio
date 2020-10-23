@@ -1,7 +1,9 @@
+@import '../../assets/scss/libs/skel';
+
 .drawSVGPath {
   stroke-dasharray: 800;
   stroke-dashoffset: 800;
-  animation: draw 3s linear forwards;
+  @include vendor('animation', 'draw 3s linear forwards');
 }
 
 @keyframes draw {
