@@ -1,11 +1,11 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import Button from '../Button';
-import InitialsLogo from '../InitialsLogo';
-import portrait from '../../images/portrait.png';
-import styles from './styles.module.scss';
+import PropTypes from 'prop-types'
+import React from 'react'
+import Button from '../Button'
+import InitialsLogo from '../InitialsLogo'
+import portrait from '../../images/portrait.png'
+import styles from './styles.module.scss'
 
-const Header = props => (
+const Header = (props) => (
   <header id="header" style={props.timeout ? { display: 'none' } : {}}>
     <div className="content">
       <div className="inner">
@@ -14,7 +14,8 @@ const Header = props => (
           <h1>Michael C. Clayton</h1>
           <img src={portrait} alt="Portrait Avatar" className={styles.avatar} />
           <p>
-            "If you don’t work on important problems, it’s not likely that you’ll do important work." —Richard Hamming
+            "If you don’t work on important problems, it’s not likely that
+            you’ll do important work." —Richard Hamming
           </p>
         </p>
       </div>
@@ -22,13 +23,13 @@ const Header = props => (
     <nav>
       <ul>
         <li>
-        <Button
-          onClick={() => {
-            props.onOpenArticle('intro')
-          }}
-        >
-          Intro
-        </Button>
+          <Button
+            onClick={() => {
+              props.onOpenArticle('intro')
+            }}
+          >
+            Intro
+          </Button>
         </li>
         <li>
           <Button
@@ -60,11 +61,11 @@ const Header = props => (
       </ul>
     </nav>
   </header>
-);
+)
 
 Header.propTypes = {
   onOpenArticle: PropTypes.func,
   timeout: PropTypes.bool,
-};
+}
 
-export default Header;
+export default Header

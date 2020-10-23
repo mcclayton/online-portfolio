@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import Article from './Article';
+import PropTypes from 'prop-types'
+import React from 'react'
+import Article from './Article'
 import pic01 from '../images/pic01.jpg'
 import pic02 from '../images/pic02.jpg'
 import pic03 from '../images/pic03.jpg'
@@ -21,11 +21,10 @@ function Main(props) {
         }`}
       >
         <p>
-          My name is Michael Clayton.
-          I graduated from Purdue University with a Bachelor of Science in Computer Science.
-          I crave learning and love a challenge.
-          I have a passion for software development and continually seek to
-          push the boundaries of my knowledge and experience.
+          My name is Michael Clayton. I graduated from Purdue University with a
+          Bachelor of Science in Computer Science. I crave learning and love a
+          challenge. I have a passion for software development and continually
+          seek to push the boundaries of my knowledge and experience.
         </p>
       </Article>
 
@@ -37,9 +36,7 @@ function Main(props) {
           props.articleTimeout ? 'timeout' : ''
         }`}
       >
-        <p>
-          ...
-        </p>
+        <p>...</p>
       </Article>
 
       <Article
@@ -50,9 +47,7 @@ function Main(props) {
           props.articleTimeout ? 'timeout' : ''
         }`}
       >
-        <p>
-          ...
-        </p>
+        <p>...</p>
       </Article>
 
       <Article
@@ -86,7 +81,7 @@ function Main(props) {
         </form>
       </Article>
     </div>
-  );
+  )
 }
 
 Main.propTypes = {
@@ -96,6 +91,6 @@ Main.propTypes = {
   onCloseArticle: PropTypes.func,
   timeout: PropTypes.bool,
   setWrapperRef: PropTypes.func.isRequired,
-};
+}
 
-export default Main;
+export default Main
