@@ -1,9 +1,9 @@
 import React from 'react';
 import PT from 'prop-types';
 
-function Footer(props) {
+function Footer({ timeout }) {
   return (
-    <footer id="footer" style={props.timeout ? { display: 'none' } : {}}>
+    <footer id="footer" style={timeout ? { display: 'none' } : {}}>
       <ul className="icons">
         <li>
           <a href="https://www.linkedin.com/in/michaelcclayton/" className="icon fa-linkedin">
@@ -16,6 +16,7 @@ function Footer(props) {
           </a>
         </li>
       </ul>
+      View My Site's <a href="https://github.com/mcclayton/mcclayton.github.io">Source Code</a> 👨🏼‍💻
     </footer>
   );
 }

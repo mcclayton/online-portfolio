@@ -13,13 +13,12 @@ yarn start
 ```
 
 ## Run Tests
-The development server can be started locally with:
 ```
 yarn test
 ```
 
-## Deploy Site To Github Pages
-The development server can be started locally with:
+## Deploy Site
+To deploy this site to [Github Pages](https://pages.github.com/) (must be properly authenticated), run:
 ```
 yarn deploy
 ```

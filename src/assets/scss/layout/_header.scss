@@ -83,19 +83,19 @@
       @include vendor('display', 'flex');
       background-image: -moz-radial-gradient(
         rgba(0, 0, 0, 0.30) 25%,
-        rgba(0, 0, 0, 0) 100%
+        rgba(0, 0, 0, 0) 80%
       );
       background-image: -webkit-radial-gradient(
         rgba(0, 0, 0, 0.30) 25%,
-        rgba(0, 0, 0, 0) 100%
+        rgba(0, 0, 0, 0) 80%
       );
       background-image: -ms-radial-gradient(
         rgba(0, 0, 0, 0.30) 25%,
-        rgba(0, 0, 0, 0) 100%
+        rgba(0, 0, 0, 0) 80%
       );
       background-image: radial-gradient(
         rgba(0, 0, 0, 0.30) 25%,
-        rgba(0, 0, 0, 0) 100%
+        rgba(0, 0, 0, 0) 80%
       );
       margin-bottom: 0;
       list-style: none;
@@ -187,7 +187,6 @@
 
         li {
           border-left: 0;
-          border-top: solid _size(border-width) _palette(border);
 
           &:first-child {
             border-top: 0;

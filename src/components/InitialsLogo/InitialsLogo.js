@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 
 const InitialsLogo = ({ strokeWidth = 2, size = 200 }) => (
   <svg xmlns="http://www.w3.org/2000/svg"
-    width={`${size}px`} height={`${size}px`}
+    width={`${size}px`} height={`${(size - 40)}px`}
     viewBox="0 0 225 155">
     <path id="MCCLogo" className={styles.drawSVGPath} fill="none" stroke="white" stroke-width={strokeWidth}
       d="M 83.72,37.00

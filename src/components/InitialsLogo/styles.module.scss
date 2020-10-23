@@ -6,7 +6,7 @@
   @include vendor('animation', 'draw 3s linear forwards');
 }
 
-@keyframes draw {
+@include keyframes('draw') {
   to {
     stroke-dashoffset: 0;
   }
