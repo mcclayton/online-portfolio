@@ -13,7 +13,6 @@ function Main(props) {
       style={props.timeout ? { display: 'flex' } : { display: 'none' }}
     >
       <Article
-        id="intro"
         title="Intro"
         img={pic01}
         onCloseArticle={props.onCloseArticle}
@@ -31,7 +30,6 @@ function Main(props) {
       </Article>
 
       <Article
-        id="work"
         title="Work"
         img={pic02}
         onCloseArticle={props.onCloseArticle}
@@ -45,7 +43,6 @@ function Main(props) {
       </Article>
 
       <Article
-        id="about"
         title="About"
         img={pic03}
         onCloseArticle={props.onCloseArticle}
@@ -59,7 +56,6 @@ function Main(props) {
       </Article>
 
       <Article
-        id="contact"
         title="Contact"
         onCloseArticle={props.onCloseArticle}
         className={`${props.article === 'contact' ? 'active' : ''} ${
