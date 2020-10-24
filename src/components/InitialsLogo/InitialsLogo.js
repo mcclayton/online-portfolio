@@ -7,6 +7,7 @@ const InitialsLogo = ({ strokeWidth = 2, size = 200 }) => (
     width={`${size}px`}
     height={`${size - 40}px`}
     viewBox="0 0 225 155"
+    className={styles.svgContainer}
   >
     <path
       id="MCCLogo"

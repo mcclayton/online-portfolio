@@ -5,7 +5,7 @@ import styles from './styles.module.scss'
 
 const Footer = ({ timeout }) => (
   <footer id="footer" style={timeout ? { display: 'none' } : {}}>
-    <ul className="icons">
+    <ul className="icons" >
       <li>
         <a
           href="https://www.linkedin.com/in/michaelcclayton/"
