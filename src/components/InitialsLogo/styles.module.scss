@@ -1,16 +1,15 @@
 @import '../../assets/scss/libs/skel';
 
+$animation-duration: 4s;
+
 .svgContainer {
-  @include vendor('animation', 'darken 2s linear forwards 1.5s');
+  @include vendor('animation', 'darken 0.5s ease-in forwards #{$animation-duration - 1.2s}');
 }
 
 .drawSVGPath {
   stroke-dasharray: 800;
   stroke-dashoffset: 800;
-  @include vendor('animation', 'draw 3.5s cubic-bezier(.66,.03,.66,.84) forwards');
-  @media only screen and (max-width: 768px) {
-    @include vendor('animation', 'draw 3s linear forwards');
-  }
+  @include vendor('animation', 'draw #{$animation-duration} ease-in-out forwards');
 }
 
 @include keyframes('darken') {
