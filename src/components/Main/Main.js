@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types'
 import React from 'react';
-import { ARTICLE_IDS } from '../constants';
-import Article from './Article';
-import pic01 from '../images/pic01.jpg';
-import pic02 from '../images/pic02.jpg';
-import pic03 from '../images/pic03.jpg';
+import { ARTICLE_IDS } from '../../constants';
+import Article from '../Article';
+import pic01 from '../../images/pic01.jpg';
+import pic02 from '../../images/pic02.jpg';
+import pic03 from '../../images/pic03.jpg';
+import wave from '../../images/wave_emoji.png';
+import styles from './styles.module.scss';
 
 const getClassFn = (article, articleTimeout) => function getClass(id) {
   return `${article === id ? 'active' : ''} ${articleTimeout ? 'timeout' : ''}`;
@@ -24,12 +26,19 @@ function Main({ article, articleTimeout, timeout, setWrapperRef, onCloseArticle 
         onCloseArticle={onCloseArticle}
         className={getArticleClass(ARTICLE_IDS.Intro)}
       >
-        <p>
-          My name is Michael Clayton. I graduated from Purdue University with a
-          Bachelor of Science in Computer Science. I crave learning and love a
-          challenge. I have a passion for software development and continually
-          seek to push the boundaries of my knowledge and experience.
-        </p>
+        <>
+          <p>
+            Hello <s>world</s> there! I'm <span className={styles.attention}>Michael Clayton</span>.
+            <img className={styles.waveEmoji} src={wave} alt="Wave Emoji" />
+          </p>
+          <p className={styles.infoBlock}>
+            I graduated from Purdue University with a Bachelor of Science in Computer Science.
+            <br/>
+            I crave learning and love a challenge.
+            <br/>
+            I have a passion for software development and continually seek to push the boundaries of my knowledge and experience.
+          </p>
+        </>
       </Article>
 
       <Article

@@ -1,5 +1,5 @@
-import React from 'react'
-import styles from './styles.module.scss'
+import React from 'react';
+import styles from './styles.module.scss';
 
 const Button = ({ children, ...props }) => (
   <button className={styles.animatedButton} {...props}>
@@ -10,6 +10,6 @@ const Button = ({ children, ...props }) => (
       </span>
     </span>
   </button>
-)
+);
 
-export default Button
+export default Button;
