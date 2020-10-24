@@ -1,16 +1,17 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import Button from '../Button'
-import InitialsLogo from '../InitialsLogo'
-import portrait from '../../images/portrait.png'
-import styles from './styles.module.scss'
+import PropTypes from 'prop-types';
+import React from 'react';
+import { ARTICLE_IDS } from '../../constants';
+import Button from '../Button';
+import InitialsLogo from '../InitialsLogo';
+import portrait from '../../images/portrait.png';
+import styles from './styles.module.scss';
 
 const Header = (props) => (
   <header id="header" style={props.timeout ? { display: 'none' } : {}}>
     <div className="content">
       <div className="inner">
         <p>
-          <InitialsLogo width="150px" />
+          <InitialsLogo size={200} />
           <h1>Michael C. Clayton</h1>
           <img src={portrait} alt="Portrait Avatar" className={styles.avatar} />
           <p>
@@ -22,42 +23,15 @@ const Header = (props) => (
     </div>
     <nav>
       <ul>
-        <li>
-          <Button
-            onClick={() => {
-              props.onOpenArticle('intro')
-            }}
-          >
-            Intro
-          </Button>
-        </li>
-        <li>
-          <Button
-            onClick={() => {
-              props.onOpenArticle('work')
-            }}
-          >
-            Work
-          </Button>
-        </li>
-        <li>
-          <Button
-            onClick={() => {
-              props.onOpenArticle('about')
-            }}
-          >
-            About
-          </Button>
-        </li>
-        <li>
-          <Button
-            onClick={() => {
-              props.onOpenArticle('contact')
-            }}
-          >
-            Contact
-          </Button>
-        </li>
+        {
+          Object.entries(ARTICLE_IDS).map(([title, id]) => (
+            <li key={id}>
+              <Button onClick={() => props.onOpenArticle(id)}>
+                {title}
+              </Button>
+            </li>
+          ))
+        }
       </ul>
     </nav>
   </header>

@@ -16,7 +16,7 @@ export const PARTY_HORSE = `
     }}}}}}'      |    //___/    \\  /_/ Michael Clayton    |
     \`{{{{\`       |     '--'      \\_______________________/
      }}}'
-`
+`;
 
 export const PARTY_HORSE_HTML_COMMENT = `
 <!--
@@ -24,4 +24,11 @@ export const PARTY_HORSE_HTML_COMMENT = `
 ${PARTY_HORSE}
 
 -->
-`
+`;
+
+export const ARTICLE_IDS = {
+  Intro: 'intro',
+  About: 'about',
+  Work: 'work',
+  Contact: 'contact'
+};

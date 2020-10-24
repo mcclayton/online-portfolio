@@ -1,24 +1,28 @@
 import PropTypes from 'prop-types'
-import React from 'react'
-import Article from './Article'
-import pic01 from '../images/pic01.jpg'
-import pic02 from '../images/pic02.jpg'
-import pic03 from '../images/pic03.jpg'
+import React from 'react';
+import { ARTICLE_IDS } from '../constants';
+import Article from './Article';
+import pic01 from '../images/pic01.jpg';
+import pic02 from '../images/pic02.jpg';
+import pic03 from '../images/pic03.jpg';
 
-function Main(props) {
+const getClassFn = (article, articleTimeout) => function getClass(id) {
+  return `${article === id ? 'active' : ''} ${articleTimeout ? 'timeout' : ''}`;
+};
+
+function Main({ article, articleTimeout, timeout, setWrapperRef, onCloseArticle }) {
+  const getArticleClass = getClassFn(article, articleTimeout);
   return (
     <div
-      ref={props.setWrapperRef}
+      ref={setWrapperRef}
       id="main"
-      style={props.timeout ? { display: 'flex' } : { display: 'none' }}
+      style={timeout ? { display: 'flex' } : { display: 'none' }}
     >
       <Article
         title="Intro"
         img={pic01}
-        onCloseArticle={props.onCloseArticle}
-        className={`${props.article === 'intro' ? 'active' : ''} ${
-          props.articleTimeout ? 'timeout' : ''
-        }`}
+        onCloseArticle={onCloseArticle}
+        className={getArticleClass(ARTICLE_IDS.Intro)}
       >
         <p>
           My name is Michael Clayton. I graduated from Purdue University with a
@@ -31,10 +35,8 @@ function Main(props) {
       <Article
         title="Work"
         img={pic02}
-        onCloseArticle={props.onCloseArticle}
-        className={`${props.article === 'work' ? 'active' : ''} ${
-          props.articleTimeout ? 'timeout' : ''
-        }`}
+        onCloseArticle={onCloseArticle}
+        className={getArticleClass(ARTICLE_IDS.Work)}
       >
         <p>...</p>
       </Article>
@@ -42,20 +44,16 @@ function Main(props) {
       <Article
         title="About"
         img={pic03}
-        onCloseArticle={props.onCloseArticle}
-        className={`${props.article === 'about' ? 'active' : ''} ${
-          props.articleTimeout ? 'timeout' : ''
-        }`}
+        onCloseArticle={onCloseArticle}
+        className={getArticleClass(ARTICLE_IDS.About)}
       >
         <p>...</p>
       </Article>
 
       <Article
         title="Contact"
-        onCloseArticle={props.onCloseArticle}
-        className={`${props.article === 'contact' ? 'active' : ''} ${
-          props.articleTimeout ? 'timeout' : ''
-        }`}
+        onCloseArticle={onCloseArticle}
+        className={getArticleClass(ARTICLE_IDS.Contact)}
       >
         <form method="post" action="#">
           <div className="field half first">
@@ -85,12 +83,11 @@ function Main(props) {
 }
 
 Main.propTypes = {
-  route: PropTypes.object,
   article: PropTypes.string,
   articleTimeout: PropTypes.bool,
   onCloseArticle: PropTypes.func,
   timeout: PropTypes.bool,
   setWrapperRef: PropTypes.func.isRequired,
-}
+};
 
-export default Main
+export default Main;
