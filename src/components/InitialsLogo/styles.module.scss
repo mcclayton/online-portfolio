@@ -3,7 +3,7 @@
 .drawSVGPath {
   stroke-dasharray: 800;
   stroke-dashoffset: 800;
-  @include vendor('animation', 'draw 3s linear forwards');
+  @include vendor('animation', 'draw 3.5s cubic-bezier(.66,.03,.66,.84) forwards');
 }
 
 @include keyframes('draw') {
