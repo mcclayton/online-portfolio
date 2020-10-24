@@ -1,10 +1,20 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
-import { PARTY_HORSE, PARTY_HORSE_HTML_COMMENT } from '../constants'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
+import { StaticQuery, graphql } from 'gatsby';
+import { PARTY_HORSE, PARTY_HORSE_HTML_COMMENT } from '../constants';
 
-import '../assets/scss/main.scss'
+import '../assets/scss/main.scss';
+
+const META_KEYWORDS = [
+  'portfolio',
+  'michael',
+  'clayton',
+  'michael c. clayton',
+  'software engineer',
+  'github',
+  'coding',
+];
 
 const Layout = ({ children, location }) => {
   let content
@@ -45,8 +55,7 @@ const Layout = ({ children, location }) => {
               },
               {
                 name: 'keywords',
-                content:
-                  'portfolio, michael, clayton, michael c. clayton, software engineer',
+                content: META_KEYWORDS.join(', ')
               },
             ]}
           >
