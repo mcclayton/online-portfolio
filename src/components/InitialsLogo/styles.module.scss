@@ -4,6 +4,9 @@
   stroke-dasharray: 800;
   stroke-dashoffset: 800;
   @include vendor('animation', 'draw 3.5s cubic-bezier(.66,.03,.66,.84) forwards');
+  @media only screen and (max-width: 768px) {
+    @include vendor('animation', 'draw 3s linear forwards');
+  }
 }
 
 @include keyframes('draw') {
