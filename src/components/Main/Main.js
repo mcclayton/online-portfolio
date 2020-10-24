@@ -47,7 +47,7 @@ function Main({ article, articleTimeout, timeout, setWrapperRef, onCloseArticle 
       >
         <>
           <p>
-            Hello there! I'm <span className={styles.attention}>Michael Clayton</span>.
+            Hello there, I'm <span className={styles.attention}>Michael Clayton</span>!
             <img className={styles.waveEmoji} src={wave} alt="Wave Emoji" />
           </p>
           <p className={styles.infoBlock}>
