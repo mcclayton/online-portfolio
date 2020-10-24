@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { ARTICLE_IDS } from '../../constants';
 import Article from '../Article';
 import pic01 from '../../images/pic01.jpg';
@@ -12,13 +12,32 @@ const getClassFn = (article, articleTimeout) => function getClass(id) {
   return `${article === id ? 'active' : ''} ${articleTimeout ? 'timeout' : ''}`;
 };
 
+const ESCAPE_KEY_VALUES = [27, 'Escape'];
+
+const getKeyCode = (event) => (
+  event.key || event.keyIdentifier || event.keyCode
+);
+
 function Main({ article, articleTimeout, timeout, setWrapperRef, onCloseArticle }) {
+  const escFunction = useCallback((event) => {
+    if (ESCAPE_KEY_VALUES.includes(getKeyCode(event))) {
+      onCloseArticle();
+    }
+  }, [onCloseArticle]);
+
+  useEffect(() => {
+    document.addEventListener('keyup', escFunction, false);
+    return () => {
+      document.removeEventListener('keyup', escFunction, false);
+    };
+  }, [escFunction]);
+
   const getArticleClass = getClassFn(article, articleTimeout);
   return (
     <div
       ref={setWrapperRef}
       id="main"
-      style={timeout ? { display: 'flex' } : { display: 'none' }}
+      style={{ display: timeout ? 'flex' : 'none' }}
     >
       <Article
         title="Intro"
@@ -28,7 +47,7 @@ function Main({ article, articleTimeout, timeout, setWrapperRef, onCloseArticle 
       >
         <>
           <p>
-            Hello <s>world</s> there! I'm <span className={styles.attention}>Michael Clayton</span>.
+            Hello there! I'm <span className={styles.attention}>Michael Clayton</span>.
             <img className={styles.waveEmoji} src={wave} alt="Wave Emoji" />
           </p>
           <p className={styles.infoBlock}>

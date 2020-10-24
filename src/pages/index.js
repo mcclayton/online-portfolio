@@ -5,8 +5,6 @@ import Header from '../components/Header';
 import Main from '../components/Main';
 import Footer from '../components/Footer';
 
-const ESCAPE_KEY_VALUES = [27, 'Escape'];
-
 class IndexPage extends React.Component {
   constructor(props) {
     super(props)
@@ -21,42 +19,19 @@ class IndexPage extends React.Component {
     this.handleCloseArticle = this.handleCloseArticle.bind(this);
     this.setWrapperRef = this.setWrapperRef.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
-    this.handleEscapeKey = this.handleEscapeKey.bind(this);
   }
 
   componentDidMount() {
     this.timeoutId = setTimeout(() => {
       this.setState({ loading: '' })
-    }, 100)
-    document.addEventListener('keyup', this.handleEscapeKey);
-
+    }, 100);
     document.addEventListener('mousedown', this.handleClickOutside)
-  }
-
-  handleEscapeKey(e) {
-    debugger;
-    function getKeyCode(event) {
-      if (event.key !== undefined) {
-        return event.key;
-      } else if (event.keyIdentifier !== undefined) {
-        return event.keyIdentifier;
-      } else if (event.keyCode !== undefined) {
-        return event.keyCode;
-      }
-    };
-
-    if (ESCAPE_KEY_VALUES.includes(getKeyCode(e))) {
-      if (this.state.isArticleVisible) {
-        this.handleCloseArticle();
-      }
-    }
   }
 
   componentWillUnmount() {
     if (this.timeoutId) {
       clearTimeout(this.timeoutId);
     }
-    document.removeEventListener('keyup', this.handleEscapeKey);
     document.removeEventListener('mousedown', this.handleClickOutside);
   }
 
