@@ -1,3 +1,5 @@
+@import '../../assets/scss/libs/skel';
+
 $image-size: 200px;
 // Ensure image used is 3x image-size
 $code-size: 600px;
@@ -12,9 +14,8 @@ $animation-delay: 3.5s;
   height: $image-size;
   margin: $border-size;
   border: $border-size solid rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
+  @include vendor('border-radius', '50%');
+  clip-path: circle($image-size at center);
   overflow: hidden;
 }
 
@@ -37,15 +38,14 @@ $animation-delay: 3.5s;
   background-repeat: repeat-y;
   height: $code-size * 3;
   width: $image-size;
-  animation: slide $duration ease-in-out $animation-delay, slide 100s linear infinite ($animation-delay + $duration);
+  @include vendor('animation', 'slide #{$duration} ease-out #{$animation-delay}, slide 100s linear infinite #{($animation-delay + $duration)}');
 }
 
-
-@keyframes slide {
+@include keyframes('slide') {
   0% {
-    transform: translate3d(0, $code-size, 0);
+    @include vendor('transform', 'translateY(#{$code-size})');
   }
   100% {
-    transform: translate3d(0, 0, 0);
+    @include vendor('transform', 'translateY(0)');
   }
 }
