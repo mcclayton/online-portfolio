@@ -30,5 +30,5 @@ export const ARTICLE_IDS = {
   Intro: 'intro',
   About: 'about',
   Work: 'work',
-  Contact: 'contact'
+  Contact: 'contact',
 };

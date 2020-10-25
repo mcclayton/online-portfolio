@@ -17,20 +17,20 @@ const META_KEYWORDS = [
 ];
 
 const Layout = ({ children, location }) => {
-  let content
+  let content;
   if (location && location.pathname === '/') {
-    content = <div>{children}</div>
+    content = <div>{children}</div>;
   } else {
     content = (
       <div id="wrapper" className="page">
         <div>{children}</div>
       </div>
-    )
+    );
   }
 
   React.useEffect(() => {
-    console.log(PARTY_HORSE)
-  }, [])
+    console.log(PARTY_HORSE);
+  }, []);
 
   return (
     <StaticQuery
@@ -55,7 +55,7 @@ const Layout = ({ children, location }) => {
               },
               {
                 name: 'keywords',
-                content: META_KEYWORDS.join(', ')
+                content: META_KEYWORDS.join(', '),
               },
             ]}
           >
@@ -65,11 +65,11 @@ const Layout = ({ children, location }) => {
         </>
       )}
     />
-  )
-}
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;

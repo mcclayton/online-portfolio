@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import React, { useEffect, useCallback } from 'react';
 import { ARTICLE_IDS } from '../../constants';
 import Article from '../Article';
@@ -8,22 +8,32 @@ import pic03 from '../../images/pic03.jpg';
 import wave from '../../images/wave_emoji.png';
 import styles from './styles.module.scss';
 
-const getClassFn = (article, articleTimeout) => function getClass(id) {
-  return `${article === id ? 'active' : ''} ${articleTimeout ? 'timeout' : ''}`;
-};
+const getClassFn = (article, articleTimeout) =>
+  function getClass(id) {
+    return `${article === id ? 'active' : ''} ${
+      articleTimeout ? 'timeout' : ''
+    }`;
+  };
 
 const ESCAPE_KEY_VALUES = [27, 'Escape'];
 
-const getKeyCode = (event) => (
-  event.key || event.keyIdentifier || event.keyCode
-);
+const getKeyCode = (event) => event.key || event.keyIdentifier || event.keyCode;
 
-function Main({ article, articleTimeout, timeout, setWrapperRef, onCloseArticle }) {
-  const escFunction = useCallback((event) => {
-    if (ESCAPE_KEY_VALUES.includes(getKeyCode(event))) {
-      onCloseArticle();
-    }
-  }, [onCloseArticle]);
+function Main({
+  article,
+  articleTimeout,
+  timeout,
+  setWrapperRef,
+  onCloseArticle,
+}) {
+  const escFunction = useCallback(
+    (event) => {
+      if (ESCAPE_KEY_VALUES.includes(getKeyCode(event))) {
+        onCloseArticle();
+      }
+    },
+    [onCloseArticle]
+  );
 
   useEffect(() => {
     document.addEventListener('keyup', escFunction, false);
@@ -47,15 +57,17 @@ function Main({ article, articleTimeout, timeout, setWrapperRef, onCloseArticle 
       >
         <>
           <p>
-            Hello there, I'm <span className={styles.attention}>Michael Clayton</span>!
+            Hello there, I'm{' '}
+            <span className={styles.attention}>Michael Clayton</span>!
             <img className={styles.waveEmoji} src={wave} alt="Wave Emoji" />
           </p>
           <p className={styles.infoBlock}>
-            I graduated from Purdue University with a Bachelor of Science in Computer Science.
-            <br/>
+            I graduated from Purdue University with a Bachelor of Science in
+            Computer Science.
+            <br />
             I crave learning and love a challenge.
-            <br/>
-            I have a passion for software development and continually seek to push the boundaries of my knowledge and experience.
+            <br />I have a passion for software development and continually seek
+            to push the boundaries of my knowledge and experience.
           </p>
         </>
       </Article>
@@ -107,7 +119,7 @@ function Main({ article, articleTimeout, timeout, setWrapperRef, onCloseArticle 
         </form>
       </Article>
     </div>
-  )
+  );
 }
 
 Main.propTypes = {

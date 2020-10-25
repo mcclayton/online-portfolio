@@ -1,5 +1,5 @@
-import React from 'react'
-import styles from './styles.module.scss'
+import React from 'react';
+import styles from './styles.module.scss';
 
 const InitialsLogo = ({ strokeWidth = 2, size = 200 }) => (
   <svg
@@ -119,6 +119,6 @@ const InitialsLogo = ({ strokeWidth = 2, size = 200 }) => (
         M 118.00,114.38M 172.25,66.50M 177.62,109.12M 27.75,134.12M 49.38,116.62"
     />
   </svg>
-)
+);
 
-export default InitialsLogo
+export default InitialsLogo;

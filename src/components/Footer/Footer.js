@@ -1,11 +1,11 @@
-import React from 'react'
-import PT from 'prop-types'
-import rocket from '../../images/rocket_emoji.png'
-import styles from './styles.module.scss'
+import React from 'react';
+import PT from 'prop-types';
+import rocket from '../../images/rocket_emoji.png';
+import styles from './styles.module.scss';
 
 const Footer = ({ timeout }) => (
   <footer id="footer" style={timeout ? { display: 'none' } : {}}>
-    <ul className="icons" >
+    <ul className="icons">
       <li>
         <a
           href="https://www.linkedin.com/in/michaelcclayton/"
@@ -26,10 +26,10 @@ const Footer = ({ timeout }) => (
       <img className={styles.emojiImage} src={rocket} alt="Rocket Emoji" />
     </div>
   </footer>
-)
+);
 
 Footer.propTypes = {
   timeout: PT.bool,
-}
+};
 
-export default Footer
+export default Footer;

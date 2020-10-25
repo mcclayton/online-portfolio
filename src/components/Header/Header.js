@@ -16,30 +16,26 @@ const Header = (props) => (
           <Avatar />
         </div>
         <p>
-          "If you don’t work on important problems, it’s not likely that
-          you’ll do important work." —Richard Hamming
+          "If you don’t work on important problems, it’s not likely that you’ll
+          do important work." —Richard Hamming
         </p>
       </div>
     </div>
     <nav>
       <ul>
-        {
-          Object.entries(ARTICLE_IDS).map(([title, id]) => (
-            <li key={id}>
-              <Button onClick={() => props.onOpenArticle(id)}>
-                {title}
-              </Button>
-            </li>
-          ))
-        }
+        {Object.entries(ARTICLE_IDS).map(([title, id]) => (
+          <li key={id}>
+            <Button onClick={() => props.onOpenArticle(id)}>{title}</Button>
+          </li>
+        ))}
       </ul>
     </nav>
   </header>
-)
+);
 
 Header.propTypes = {
   onOpenArticle: PropTypes.func,
   timeout: PropTypes.bool,
-}
+};
 
-export default Header
+export default Header;

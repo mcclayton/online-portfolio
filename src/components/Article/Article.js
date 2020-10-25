@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Article = ({ onCloseArticle, children, title, img, ...props }) => (
   <article style={{ display: 'none' }} {...props}>
@@ -11,6 +11,6 @@ const Article = ({ onCloseArticle, children, title, img, ...props }) => (
     {children}
     <div className="close" onClick={onCloseArticle} />
   </article>
-)
+);
 
-export default Article
+export default Article;

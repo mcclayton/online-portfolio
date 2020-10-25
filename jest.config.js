@@ -9,4 +9,4 @@ module.exports = {
   testMatch: ['<rootDir>/src/**/*.{spec,test}.{js,ts}'],
   coverageDirectory: 'coverage',
   collectCoverageFrom: ['src/**/*.{ts,js}', '!src/**/*.d.ts'],
-}
+};

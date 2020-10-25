@@ -7,14 +7,14 @@ import Footer from '../components/Footer';
 
 class IndexPage extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       isArticleVisible: false,
       timeout: false,
       articleTimeout: false,
       article: '',
       loading: true,
-    }
+    };
     this.handleOpenArticle = this.handleOpenArticle.bind(this);
     this.handleCloseArticle = this.handleCloseArticle.bind(this);
     this.setWrapperRef = this.setWrapperRef.bind(this);
@@ -23,9 +23,9 @@ class IndexPage extends React.Component {
 
   componentDidMount() {
     this.timeoutId = setTimeout(() => {
-      this.setState({ loading: false })
+      this.setState({ loading: false });
     }, 100);
-    document.addEventListener('mousedown', this.handleClickOutside)
+    document.addEventListener('mousedown', this.handleClickOutside);
   }
 
   componentWillUnmount() {
