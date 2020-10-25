@@ -3,21 +3,21 @@ import React from 'react';
 import { ARTICLE_IDS } from '../../constants';
 import Button from '../Button';
 import InitialsLogo from '../InitialsLogo';
-import portrait from '../../images/portrait.png';
+import Avatar from '../Avatar';
 import styles from './styles.module.scss';
 
 const Header = (props) => (
   <header id="header" style={props.timeout ? { display: 'none' } : {}}>
     <div className="content">
       <div className="inner">
+        <InitialsLogo size={200} />
+        <h1>Michael C. Clayton</h1>
+        <div className={styles.avatarContainer}>
+          <Avatar />
+        </div>
         <p>
-          <InitialsLogo size={200} />
-          <h1>Michael C. Clayton</h1>
-          <img src={portrait} alt="Portrait Avatar" className={styles.avatar} />
-          <p>
-            "If you don’t work on important problems, it’s not likely that
-            you’ll do important work." —Richard Hamming
-          </p>
+          "If you don’t work on important problems, it’s not likely that
+          you’ll do important work." —Richard Hamming
         </p>
       </div>
     </div>

@@ -1,0 +1,51 @@
+$image-size: 200px;
+// Ensure image used is 3x image-size
+$code-size: 600px;
+$border-size: 8px;
+
+// Time this to go off right after initials logo finishes
+$animation-delay: 3.5s;
+
+.container {
+  position: relative;
+  width: $image-size;
+  height: $image-size;
+  margin: $border-size;
+  border: $border-size solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  overflow: hidden;
+}
+
+.portrait {
+  position: absolute;
+  bottom: -($border-size * 2);
+  left: -($border-size);
+  width: $image-size;
+  height: $image-size;
+  transform: translateX(-$border-size);
+}
+
+.slidingBackground {
+  $duration: 5s;
+  position: absolute;
+  bottom: 0;
+  left: -$border-size;
+  background-color: #23272E;
+  background-image: url('../../images/code.png');
+  background-repeat: repeat-y;
+  height: $code-size * 3;
+  width: $image-size;
+  animation: slide $duration ease-in-out $animation-delay, slide 100s linear infinite ($animation-delay + $duration);
+}
+
+
+@keyframes slide {
+  0% {
+    transform: translate3d(0, $code-size, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}

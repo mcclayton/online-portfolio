@@ -1,8 +1,4 @@
-.avatar {
-  width: 200px;
-  margin: 8px;
-  border: 8px solid rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
+.avatarContainer {
+  display: flex;
+  justify-content: center;
 }
