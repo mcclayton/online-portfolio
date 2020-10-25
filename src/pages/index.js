@@ -13,7 +13,7 @@ class IndexPage extends React.Component {
       timeout: false,
       articleTimeout: false,
       article: '',
-      loading: 'is-loading',
+      loading: true,
     }
     this.handleOpenArticle = this.handleOpenArticle.bind(this);
     this.handleCloseArticle = this.handleCloseArticle.bind(this);
@@ -23,7 +23,7 @@ class IndexPage extends React.Component {
 
   componentDidMount() {
     this.timeoutId = setTimeout(() => {
-      this.setState({ loading: '' })
+      this.setState({ loading: false })
     }, 100);
     document.addEventListener('mousedown', this.handleClickOutside)
   }
@@ -89,7 +89,7 @@ class IndexPage extends React.Component {
     return (
       <Layout location={this.props.location}>
         <div
-          className={`body ${this.state.loading} ${
+          className={`body ${this.state.loading ? 'is-loading' : ''} ${
             this.state.isArticleVisible ? 'is-article-visible' : ''
           }`}
         >
