@@ -4,7 +4,9 @@ import portrait from '../../images/portrait.png';
 
 const Avatar = () => (
   <div className={styles.container}>
-    <div className={styles.slidingBackground} />
+    <div className={styles.scrollWrapper}>
+      <div className={styles.scrollingBackground} />
+    </div>
     <img src={portrait} className={styles.portrait} />
   </div>
 );
