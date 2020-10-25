@@ -57,7 +57,16 @@ $animation-delay: 3.5s;
   background-repeat: repeat-y;
   height: $code-size * 3;
   width: $image-size;
-  @include vendor('animation', 'slide 100s linear infinite');
+  @include vendor('animation', 'slide 100s linear infinite, unblur 2.5s ease-in');
+}
+
+@include keyframes('unblur') {
+  0% {
+    filter: blur(3px);
+  }
+  100% {
+    filter: blur(0);
+  }
 }
 
 @include keyframes('slide') {
