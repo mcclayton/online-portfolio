@@ -20,6 +20,7 @@ $animation-delay: 3.5s;
   &:hover {
     // Start the faster slider, pause the slower
     .scrollWrapper {
+      filter: blur(1.5px);
       @include vendor('animation-play-state', 'running');
     }
     .scrollingBackground {
@@ -43,7 +44,7 @@ $animation-delay: 3.5s;
   left: -$border-size;
   height: $code-size * 3;
   width: $image-size;
-  @include vendor('animation', 'slide 5s linear infinite');
+  @include vendor('animation', 'slide 5s linear infinite reverse');
   @include vendor('animation-play-state', 'paused');
 }
 
