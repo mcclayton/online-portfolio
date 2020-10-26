@@ -10,14 +10,24 @@ const Article = ({ id, title, article, timeout, onClose, children, img, ...props
   });
   return (
     <article className={classes} style={{ display: 'none' }} {...props}>
-      <h2 className="major">{title}</h2>
-      {img && (
-        <span className="image main">
-          <img src={img} alt="" />
-        </span>
-      )}
-      {children}
-      <div className={styles.close} onClick={onClose} />
+      <div className={styles.titleBar}>
+        <div className={styles.titleButtons}>
+          <span className={styles.btnClose} onClick={onClose} />
+          <span className={styles.btnMini} />
+          <span className={styles.btnMax} />
+        </div>
+        <div className={styles.titleLabel}>{title}</div>
+      </div>
+      <div className={styles.content}>
+        <>
+          {img && (
+            <span className="image main">
+              <img src={img} alt="" />
+            </span>
+          )}
+          {children}
+        </>
+      </div>
     </article>
   );
 };

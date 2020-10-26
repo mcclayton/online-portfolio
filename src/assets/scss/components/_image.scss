@@ -32,40 +32,9 @@
     display: block;
   }
 
-  &.left,
-  &.right {
-    max-width: 40%;
-
-    img {
-      width: 100%;
-    }
-  }
-
-  &.left {
-    float: left;
-    padding: 0 1.5em 1em 0;
-    top: 0.25em;
-  }
-
-  &.right {
-    float: right;
-    padding: 0 0 1em 1.5em;
-    top: 0.25em;
-  }
-
-  &.fit {
-    display: block;
-    margin: 0 0 _size(element-margin) 0;
-    width: 100%;
-
-    img {
-      width: 100%;
-    }
-  }
-
   &.main {
     display: block;
-    margin: (_size(element-margin) * 1.25) 0;
+    margin: 0 0 (_size(element-margin) * 1.25) 0;
     width: 100%;
 
     img {
@@ -75,13 +44,13 @@
 
   @include breakpoint(small) {
     &.main {
-      margin: (_size(element-margin) * 1) 0;
+      margin: 0 0 (_size(element-margin) * 1) 0;
     }
   }
 
   @include breakpoint(xsmall) {
     &.main {
-      margin: (_size(element-margin) * 0.75) 0;
+      margin: 0 0 (_size(element-margin) * .75) 0;
     }
   }
 }
