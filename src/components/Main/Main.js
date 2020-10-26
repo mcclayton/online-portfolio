@@ -8,13 +8,6 @@ import pic03 from '../../images/pic03.jpg';
 import wave from '../../images/wave_emoji.png';
 import styles from './styles.module.scss';
 
-const getClassFn = (article, articleTimeout) =>
-  function getClass(id) {
-    return `${article === id ? 'active' : ''} ${
-      articleTimeout ? 'timeout' : ''
-    }`;
-  };
-
 const ESCAPE_KEY_VALUES = [27, 'Escape'];
 
 const getKeyCode = (event) => event.key || event.keyIdentifier || event.keyCode;
@@ -42,7 +35,7 @@ function Main({
     };
   }, [escFunction]);
 
-  const getArticleClass = getClassFn(article, articleTimeout);
+  const baseArticleProps = { article, timeout: articleTimeout, onClose: onCloseArticle };
   return (
     <div
       ref={setWrapperRef}
@@ -51,9 +44,9 @@ function Main({
     >
       <Article
         title="Intro"
+        id={ARTICLE_IDS.Intro}
         img={pic01}
-        onCloseArticle={onCloseArticle}
-        className={getArticleClass(ARTICLE_IDS.Intro)}
+        {...baseArticleProps}
       >
         <>
           <p>
@@ -74,26 +67,26 @@ function Main({
 
       <Article
         title="Work"
+        id={ARTICLE_IDS.Work}
         img={pic02}
-        onCloseArticle={onCloseArticle}
-        className={getArticleClass(ARTICLE_IDS.Work)}
+        {...baseArticleProps}
       >
         <p>...</p>
       </Article>
 
       <Article
         title="About"
+        id={ARTICLE_IDS.About}
         img={pic03}
-        onCloseArticle={onCloseArticle}
-        className={getArticleClass(ARTICLE_IDS.About)}
+        {...baseArticleProps}
       >
         <p>...</p>
       </Article>
 
       <Article
         title="Contact"
-        onCloseArticle={onCloseArticle}
-        className={getArticleClass(ARTICLE_IDS.Contact)}
+        id={ARTICLE_IDS.Contact}
+        {...baseArticleProps}
       >
         <form method="post" action="#">
           <div className="field half first">

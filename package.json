@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "author": "Michael Clayton",
   "dependencies": {
+    "classnames": "2.2.6",
     "gatsby": "2.24.85",
     "gatsby-plugin-manifest": "2.4.35",
     "gatsby-plugin-react-helmet": "3.3.14",
