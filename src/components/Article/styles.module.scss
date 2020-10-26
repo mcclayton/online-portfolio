@@ -49,78 +49,79 @@
 
 
 .titleBar {
+  $button-size: 12px;
+
   @include vendor('display', 'flex');
   @include vendor('justify-content', 'space-between');
   @include vendor('align-items', 'center');
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
-}
 
-$button-size: 12px;
-
-.titleButtons span {
-  @include vendor('transition', 'opacity .2s ease-in-out');
-  margin-right: 0.5rem;
-  line-height: 0;
-  font-size: 12px;
-  width: $button-size;
-  height: $button-size;
-  border-radius: 50%;
-  display: inline-block;
-  font-weight: bold;
-}
-
-.titleButtons {
-  &:hover {
-    .btnClose:after {
-      opacity: 1;
-    }
-    .btnMini {
-      opacity: 0.3;
-    }
-    .btnMax {
-      opacity: 0.3;
-    }
-  }
-}
-
-.btnClose {
-  position: relative;
-  padding: 4px 0;
-  &:after {
+  .buttons span {
     @include vendor('transition', 'opacity .2s ease-in-out');
-    position: absolute;
-    top: 4px;
-    left: 2px;
-    opacity: 0;
-    content: 'x';
-    z-index: 5;
+    margin-right: 0.5rem;
+    line-height: 0;
+    font-size: 12px;
+    width: $button-size;
+    height: $button-size;
+    border-radius: 50%;
+    display: inline-block;
+    font-weight: bold;
   }
-  text-align: center;
-  cursor: pointer;
-  color: #6A1814;
-  background: #EF6A5E;
-  border: 1px solid #E15F53;
-}
 
-.btnMini {
-  background: rgba(253, 188, 64, 1);
-  border: 1px solid #E8B24A;
-}
+  .buttons {
+    &:hover {
+      .close:after {
+        opacity: 1;
+      }
+      .mini {
+        opacity: 0.3;
+      }
+      .max {
+        opacity: 0.3;
+      }
+    }
+  }
 
-.btnMax {
-  background: rgba(52, 204, 74, 1);
-  border: 1px solid #5BB94C;
-}
+  .close {
+    position: relative;
+    padding: 4px 0;
+    &:after {
+      @include vendor('transition', 'opacity .2s ease-in-out');
+      position: absolute;
+      top: 4px;
+      left: 2px;
+      opacity: 0;
+      content: 'x';
+      z-index: 5;
+    }
+    text-align: center;
+    cursor: pointer;
+    color: #6A1814;
+    background: #EF6A5E;
+    border: 1px solid #E15F53;
+  }
 
-.titleLabel {
-  text-align: center;
-  @include vendor('display', '10');
-  color: white;
-  text-transform: uppercase;
-  font-size: 1.5rem;
-  line-height: 1.4;
-  letter-spacing: _font(letter-spacing-heading);
-  font-weight: bold;
+  .mini {
+    background: rgba(253, 188, 64, 1);
+    border: 1px solid #E8B24A;
+  }
+
+  .max {
+    background: rgba(52, 204, 74, 1);
+    border: 1px solid #5BB94C;
+  }
+
+  .title {
+    @include vendor('display', '10');
+    opacity: 0.2;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    letter-spacing: _font(letter-spacing-heading);
+    font-weight: bold;
+  }
 }

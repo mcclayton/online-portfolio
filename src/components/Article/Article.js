@@ -10,14 +10,7 @@ const Article = ({ id, title, article, timeout, onClose, children, img, ...props
   });
   return (
     <article className={classes} style={{ display: 'none' }} {...props}>
-      <div className={styles.titleBar}>
-        <div className={styles.titleButtons}>
-          <span className={styles.btnClose} onClick={onClose} />
-          <span className={styles.btnMini} />
-          <span className={styles.btnMax} />
-        </div>
-        <div className={styles.titleLabel}>{title}</div>
-      </div>
+      <Toolbar title={title} onClose={onClose} />
       <div className={styles.content}>
         <>
           {img && (
@@ -31,5 +24,18 @@ const Article = ({ id, title, article, timeout, onClose, children, img, ...props
     </article>
   );
 };
+
+function Toolbar({ title, onClose }) {
+  return (
+    <div className={styles.titleBar}>
+      <div className={styles.buttons}>
+        <span className={styles.close} onClick={onClose} />
+        <span className={styles.mini} />
+        <span className={styles.max} />
+      </div>
+      <div className={styles.title}>{title}</div>
+    </div>
+  );
+}
 
 export default Article;
