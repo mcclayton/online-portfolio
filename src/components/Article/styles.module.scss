@@ -114,7 +114,6 @@
   }
 
   .title {
-    @include vendor('display', '10');
     opacity: 0.2;
     text-align: center;
     color: white;
