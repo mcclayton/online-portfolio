@@ -2,9 +2,8 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useCallback } from 'react';
 import { ARTICLE_IDS } from '../../constants';
 import Article from '../Article';
+import CodeMemoji from '../CodeMemoji';
 import pic01 from '../../images/pic01.jpg';
-import pic02 from '../../images/pic02.jpg';
-import pic03 from '../../images/pic03.jpg';
 import wave from '../../images/wave_emoji.png';
 import styles from './styles.module.scss';
 
@@ -45,7 +44,7 @@ function Main({
       <Article
         title="Intro"
         id={ARTICLE_IDS.Intro}
-        img={pic01}
+        img={<CodeMemoji />}
         {...baseArticleProps}
       >
         <>
@@ -68,7 +67,7 @@ function Main({
       <Article
         title="Work"
         id={ARTICLE_IDS.Work}
-        img={pic02}
+        img={<img src={pic01} />}
         {...baseArticleProps}
       >
         <p>...</p>
@@ -77,7 +76,7 @@ function Main({
       <Article
         title="About"
         id={ARTICLE_IDS.About}
-        img={pic03}
+        img={<img src={pic01} />}
         {...baseArticleProps}
       >
         <p>...</p>

@@ -1,0 +1,39 @@
+@import '../../assets/scss/libs/skel';
+@import '../../assets/scss/libs/mixins';
+@import '../../assets/scss/libs/functions';
+@import '../../assets/scss/libs/vars';
+
+.container {
+  &:hover {
+    .stickers {
+      filter: contrast(150%);
+    }
+  }
+}
+
+.memoji, .stickers {
+  position: absolute;
+  bottom: -2px;
+  right: 20%;
+  height: 150px;
+  width: 125px !important;
+  animation: 2s melt-enter;
+  border-radius: 50%;
+}
+
+.stickers {
+  transition: filter 0.2s ease-in-out;
+  @include vendor('animation', 'fade-in 1.5s ease-in');
+  filter: contrast(120%);
+}
+
+@include keyframes('fade-in') {
+  0% {
+    opacity: 0.3;
+    filter: contrast(50%);
+  }
+  100% {
+    opacity: 100%;
+    filter: contrast(120%);
+  }
+}

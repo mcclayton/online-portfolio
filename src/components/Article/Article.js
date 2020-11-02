@@ -14,8 +14,8 @@ const Article = ({ id, title, article, timeout, onClose, children, img, ...props
       <div className={styles.content}>
         <>
           {img && (
-            <span className="image main">
-              <img src={img} alt="" />
+            <span className={cx('image', 'main', styles.imgContainer)}>
+              {img}
             </span>
           )}
           {children}
