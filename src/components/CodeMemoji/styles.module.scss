@@ -13,10 +13,12 @@
 
 .memoji, .stickers {
   position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
   bottom: -2px;
-  right: 20%;
   height: 150px;
-  width: 125px !important;
+  width: 125px;
   border-radius: 50%;
 }
 
