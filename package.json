@@ -20,7 +20,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby build && cp -r ./src/public/. ./public/",
     "start": "gatsby develop",
     "deploy": "gatsby build --prefix-paths && cp CNAME ./public/CNAME && gh-pages -d public",
     "format": "prettier --write '**/*.js'",
