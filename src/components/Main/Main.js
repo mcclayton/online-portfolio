@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useCallback } from 'react';
 import { ARTICLE_IDS } from '../../constants';
 import Article from '../Article';
+import UnderConstruction from './UnderConstruction';
 import CodeMemoji from '../CodeMemoji';
 import pic01 from '../../images/pic01.jpg';
 import wave from '../../images/wave_emoji.png';
@@ -70,7 +71,7 @@ function Main({
         img={<img src={pic01} />}
         {...baseArticleProps}
       >
-        <p>...</p>
+        <UnderConstruction />
       </Article>
 
       <Article
@@ -79,7 +80,7 @@ function Main({
         img={<img src={pic01} />}
         {...baseArticleProps}
       >
-        <p>...</p>
+        <UnderConstruction />
       </Article>
 
       <Article
