@@ -55,14 +55,14 @@ function Main({
             <span className={styles.attention}>Michael Clayton</span>!
             <img className={styles.waveEmoji} src={wave} alt="Wave Emoji" />
           </p>
-          <p className={styles.infoBlock}>
+          <blockquote>
             I graduated from Purdue University with a Bachelor of Science in
             Computer Science.
             <br />
             I crave learning and love a challenge.
             <br />I have a passion for software development and continually seek
             to push the boundaries of my knowledge and experience.
-          </p>
+          </blockquote>
         </>
       </Article>
 
