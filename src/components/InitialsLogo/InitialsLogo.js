@@ -14,7 +14,7 @@ const InitialsLogo = ({ strokeWidth = 2, size = 200 }) => (
       className={styles.drawSVGPath}
       fill="none"
       stroke="white"
-      stroke-width={strokeWidth}
+      strokeWidth={strokeWidth}
       d="M 83.72,37.00
         C 83.72,37.00 95.28,24.00 95.28,24.00
           98.39,20.46 108.24,8.64 111.98,7.40

@@ -4,12 +4,12 @@
   "author": "Michael Clayton",
   "dependencies": {
     "classnames": "2.2.6",
-    "gatsby": "2.24.85",
-    "gatsby-plugin-manifest": "2.4.35",
-    "gatsby-plugin-react-helmet": "3.3.14",
+    "gatsby": "2.32.4",
+    "gatsby-plugin-manifest": "2.12.0",
+    "gatsby-plugin-react-helmet": "3.10.0",
     "gatsby-plugin-remove-generator": "^1.0.6",
-    "gatsby-plugin-sass": "2.3.21",
-    "node-sass": "4.14.1",
+    "gatsby-plugin-sass": "3.2.0",
+    "node-sass": "5.0.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-helmet": "6.1.0"
@@ -28,17 +28,17 @@
     "test:watch": "jest --watch"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.12.1",
-    "@babel/plugin-proposal-object-rest-spread": "7.12.1",
-    "@babel/preset-env": "7.12.1",
-    "@babel/preset-react": "7.12.1",
-    "babel-jest": "26.6.1",
+    "@babel/plugin-proposal-class-properties": "7.13.0",
+    "@babel/plugin-proposal-object-rest-spread": "7.13.0",
+    "@babel/preset-env": "7.13.5",
+    "@babel/preset-react": "7.12.13",
+    "babel-jest": "26.6.3",
     "enzyme": "3.11.0",
-    "enzyme-adapter-react-16": "1.15.5",
+    "enzyme-adapter-react-16": "1.15.6",
     "gh-pages": "3.1.0",
     "identity-obj-proxy": "3.0.0",
-    "jest": "26.6.1",
-    "prettier": "2.1.2",
-    "ts-jest": "26.4.2"
+    "jest": "26.6.3",
+    "prettier": "2.2.1",
+    "ts-jest": "26.5.1"
   }
 }
