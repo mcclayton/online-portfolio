@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import HumanVerifier, { USER_TYPE } from './HumanVerifier';
 
 const FORMSPREE_URL = 'https://formspree.io/f/mvovnewb';
 
@@ -9,11 +10,25 @@ const FORM_STATUSES = {
   SUCCESS: 3
 };
 
+const createErrorReponse = (message) => ({
+  errors: [{ message }]
+});
+
 const ContactForm = () => {
   const [state, updateFormState] = useState({ status: FORM_STATUSES.DRAFT, response: null });
+  const [userType, setUserType] = useState(USER_TYPE.NONE);
 
-  const submitForm = (e) => {
+  const submitForm = (e, userType) => {
     e.preventDefault();
+
+    if (userType === USER_TYPE.ROBOT) {
+      updateFormState({ status: FORM_STATUSES.ERROR, response: createErrorReponse("Robots don't have thumbs.") });
+      return;
+    } else if (userType === USER_TYPE.NONE) {
+      updateFormState({ status: FORM_STATUSES.ERROR, response: createErrorReponse("Please specify if you're a robot or human.") });
+      return;
+    }
+
     const form = e.target;
     const data = new FormData(form);
     const xhr = new XMLHttpRequest();
@@ -50,7 +65,7 @@ const ContactForm = () => {
               <input type="submit" value="Send Message" className="special" />
             </li>
             <li>
-              <input type="reset" value="Reset" />
+              <input onClick={() => setUserType(USER_TYPE.NONE)} type="reset" value="Reset" />
             </li>
           </>
         )
@@ -59,7 +74,7 @@ const ContactForm = () => {
   );
 
   return (
-    <form method="POST" action={FORMSPREE_URL} onSubmit={submitForm}>
+    <form method="POST" action={FORMSPREE_URL} onSubmit={(e) => submitForm(e, userType)}>
       <div className="field half first">
         <label htmlFor="name">Name</label>
         <input type="text" name="name" id="name" />
@@ -71,6 +86,9 @@ const ContactForm = () => {
       <div className="field">
         <label htmlFor="message">Message</label>
         <textarea name="message" id="message" rows="4"></textarea>
+      </div>
+      <div className="field">
+        <HumanVerifier userType={userType} onChange={setUserType} />
       </div>
       {status === FORM_STATUSES.SUCCESS && <h3>Submission confirmed — thank you!</h3>}
       {status === FORM_STATUSES.ERROR && (
