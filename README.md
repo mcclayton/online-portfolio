@@ -4,7 +4,7 @@
 ![](src/images/mcc.svg)
 
 ## View Live Site
-http://www.michaelcclayton.com
+https://www.michaelcclayton.com
 
 ## Run Locally
 The development server can be started locally with:
