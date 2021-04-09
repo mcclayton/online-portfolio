@@ -10,6 +10,11 @@ $animation-duration: 4s;
   stroke-dasharray: 800;
   stroke-dashoffset: 800;
   @include vendor('animation', 'draw #{$animation-duration} ease-in-out forwards');
+  &.loader {
+    stroke-dasharray: 300;
+    stroke-dashoffset: 660;
+    @include vendor('animation', 'draw #{$animation-duration} linear alternate infinite');
+  }
 }
 
 @include keyframes('darken') {

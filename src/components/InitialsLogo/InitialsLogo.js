@@ -1,7 +1,9 @@
 import React from 'react';
+import classnames from 'classnames/bind';
 import styles from './styles.module.scss';
+const cx = classnames.bind(styles);
 
-const InitialsLogo = ({ strokeWidth = 2, size = 200 }) => (
+const InitialsLogo = ({ color = 'white', strokeWidth = 2, size = 200, loader = false }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={`${size}px`}
@@ -11,9 +13,9 @@ const InitialsLogo = ({ strokeWidth = 2, size = 200 }) => (
   >
     <path
       id="MCCLogo"
-      className={styles.drawSVGPath}
+      className={cx(styles.drawSVGPath, { [styles.loader]: loader })}
       fill="none"
-      stroke="white"
+      stroke={color}
       strokeWidth={strokeWidth}
       d="M 83.72,37.00
         C 83.72,37.00 95.28,24.00 95.28,24.00
