@@ -6,9 +6,17 @@ function BackgroundLoader({ children }) {
   const imgRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  function finishLoading(delay = 0) {
+    if (!delay) {
+      setIsLoading(false);
+    } else {
+      setTimeout(() => setIsLoading(false), Math.floor(Math.random() * (delay + 300)) + delay);
+    }
+  }
+
   useEffect(() => {
     if (imgRef.current?.complete) {
-      setIsLoading(false);
+      finishLoading();
     }
   }, []);
 
@@ -23,7 +31,7 @@ function BackgroundLoader({ children }) {
             style={{ display: 'none' }}
             ref={imgRef}
             src={background}
-            onLoad={() => setIsLoading(false)}
+            onLoad={() => finishLoading(700)}
             decoding="async"
           />
         )
