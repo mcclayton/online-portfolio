@@ -23,7 +23,7 @@ function BackgroundLoader({ children }) {
             style={{ display: 'none' }}
             ref={imgRef}
             src={background}
-            onLoad={setIsLoading(false)}
+            onLoad={() => setIsLoading(false)}
             decoding="async"
           />
         )
