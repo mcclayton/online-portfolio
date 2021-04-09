@@ -1,9 +1,10 @@
 import React from 'react';
+import cx from 'classnames';
 import Layout from '../components/layout';
-
 import Header from '../components/Header';
 import Main from '../components/Main';
 import Footer from '../components/Footer';
+import BackgroundLoader from '../components/BackgroundLoader';
 
 class IndexPage extends React.Component {
   constructor(props) {
@@ -13,7 +14,6 @@ class IndexPage extends React.Component {
       timeout: false,
       articleTimeout: false,
       article: '',
-      loading: true,
     };
     this.handleOpenArticle = this.handleOpenArticle.bind(this);
     this.handleCloseArticle = this.handleCloseArticle.bind(this);
@@ -22,9 +22,6 @@ class IndexPage extends React.Component {
   }
 
   componentDidMount() {
-    this.timeoutId = setTimeout(() => {
-      this.setState({ loading: false });
-    }, 100);
     document.addEventListener('mousedown', this.handleClickOutside);
   }
 
@@ -88,28 +85,29 @@ class IndexPage extends React.Component {
   render() {
     return (
       <Layout location={this.props.location}>
-        <div
-          className={`body ${this.state.loading ? 'is-loading' : ''} ${
-            this.state.isArticleVisible ? 'is-article-visible' : ''
-          }`}
-        >
-          <div id="wrapper">
-            <Header
-              onOpenArticle={this.handleOpenArticle}
-              timeout={this.state.timeout}
-            />
-            <Main
-              isArticleVisible={this.state.isArticleVisible}
-              timeout={this.state.timeout}
-              articleTimeout={this.state.articleTimeout}
-              article={this.state.article}
-              onCloseArticle={this.handleCloseArticle}
-              setWrapperRef={this.setWrapperRef}
-            />
-            <Footer timeout={this.state.timeout} />
-          </div>
-          <div id="bg" />
-        </div>
+        <BackgroundLoader>
+          {
+            ({ isLoading }) => (
+              <div className={cx('body', { 'is-loading': isLoading, 'is-article-visible': this.state.isArticleVisible })}>
+                <div id="wrapper">
+                  <Header
+                    onOpenArticle={this.handleOpenArticle}
+                    timeout={this.state.timeout}
+                  />
+                  <Main
+                    isArticleVisible={this.state.isArticleVisible}
+                    timeout={this.state.timeout}
+                    articleTimeout={this.state.articleTimeout}
+                    article={this.state.article}
+                    onCloseArticle={this.handleCloseArticle}
+                    setWrapperRef={this.setWrapperRef}
+                  />
+                  <Footer timeout={this.state.timeout} />
+                </div>
+              </div>
+            )
+          }
+        </BackgroundLoader>
       </Layout>
     );
   }
