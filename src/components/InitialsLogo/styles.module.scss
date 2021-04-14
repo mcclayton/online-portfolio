@@ -2,7 +2,7 @@
 
 $animation-duration: 4s;
 
-.svgContainer {
+.svgContainer:not(.loader) {
   @include vendor('animation', 'darken 0.5s ease-in forwards #{$animation-duration - 1.2s}');
 }
 

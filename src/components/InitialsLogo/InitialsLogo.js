@@ -9,7 +9,7 @@ const InitialsLogo = ({ color = 'white', strokeWidth = 2, size = 200, loader = f
     width={`${size}px`}
     height={`${size - 40}px`}
     viewBox="0 0 225 155"
-    className={styles.svgContainer}
+    className={cx(styles.svgContainer, { [styles.loader]: loader })}
   >
     <path
       id="MCCLogo"
