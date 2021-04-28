@@ -17,11 +17,12 @@ const createErrorReponse = (message) => ({
 const ContactForm = () => {
   const [state, updateFormState] = useState({ status: FORM_STATUSES.DRAFT, response: null });
   const [userType, setUserType] = useState(USER_TYPE.NONE);
+  const honeypotRef = React.createRef();
 
   const submitForm = (e, userType) => {
     e.preventDefault();
 
-    if (userType === USER_TYPE.ROBOT) {
+    if (userType === USER_TYPE.ROBOT || !!honeypotRef.current?.value) {
       updateFormState({ status: FORM_STATUSES.ERROR, response: createErrorReponse("Robots don't have thumbs.") });
       return;
     } else if (userType === USER_TYPE.NONE) {
@@ -88,7 +89,7 @@ const ContactForm = () => {
         <textarea name="message" id="message" rows="4"></textarea>
       </div>
       <div className="field">
-        <HumanVerifier userType={userType} onChange={setUserType} />
+        <HumanVerifier userType={userType} onChange={setUserType} ref={honeypotRef} />
       </div>
       {status === FORM_STATUSES.SUCCESS && <h3>Submission confirmed — thank you!</h3>}
       {status === FORM_STATUSES.ERROR && (
@@ -97,7 +98,7 @@ const ContactForm = () => {
           <ul>
             {
               response.errors.map((err) => (
-                <li style={{ opacity: '0.5'}}>{getErrorMessage(err)}</li>
+                <li key={getErrorMessage(err)} style={{ opacity: '0.5'}}>{getErrorMessage(err)}</li>
               ))
             }
           </ul>
