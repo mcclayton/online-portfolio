@@ -12,7 +12,18 @@ export const USER_TYPE = {
 // Hidden form field designed to catch robots
 const HONEY_POT_FIELD = 'phone';
 
-const HumanVerifier = React.forwardRef(({ userType, onChange }, honeypotRef) => {
+export function caughtRobotInHoneypot(formData) {
+  for (let pair of formData.entries()) {
+    const [key, value] = pair;
+    if (key === HONEY_POT_FIELD && !!value) {
+      // Robot filled out honeypot field
+      return true;
+    }
+  }
+  return false;
+}
+
+const HumanVerifier = ({ userType, onChange }) => {
   function handleClick(type) {
     onChange(type);
   }
@@ -28,9 +39,8 @@ const HumanVerifier = React.forwardRef(({ userType, onChange }, honeypotRef) => 
           👀 Human
         </span>
         <input
-          ref={honeypotRef}
-          tabindex="-1"
-          autocomplete="off"
+          tabIndex="-1"
+          autoComplete="off"
           className={cx(styles.honeypotField)}
           type={HONEY_POT_FIELD}
           name={HONEY_POT_FIELD}
@@ -39,6 +49,6 @@ const HumanVerifier = React.forwardRef(({ userType, onChange }, honeypotRef) => 
       </div>
     </div>
   );
-});
+};
 
 export default HumanVerifier;

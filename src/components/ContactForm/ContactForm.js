@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import HumanVerifier, { USER_TYPE } from './HumanVerifier';
+import HumanVerifier, { USER_TYPE, caughtRobotInHoneypot } from './HumanVerifier';
 
 const FORMSPREE_URL = 'https://formspree.io/f/mvovnewb';
 
@@ -17,12 +17,14 @@ const createErrorReponse = (message) => ({
 const ContactForm = () => {
   const [state, updateFormState] = useState({ status: FORM_STATUSES.DRAFT, response: null });
   const [userType, setUserType] = useState(USER_TYPE.NONE);
-  const honeypotRef = React.createRef();
 
   const submitForm = (e, userType) => {
     e.preventDefault();
 
-    if (userType === USER_TYPE.ROBOT || !!honeypotRef.current?.value) {
+    const form = e.target;
+    const data = new FormData(form);
+
+    if (userType === USER_TYPE.ROBOT || caughtRobotInHoneypot(data)) {
       updateFormState({ status: FORM_STATUSES.ERROR, response: createErrorReponse("Robots don't have thumbs.") });
       return;
     } else if (userType === USER_TYPE.NONE) {
@@ -30,8 +32,6 @@ const ContactForm = () => {
       return;
     }
 
-    const form = e.target;
-    const data = new FormData(form);
     const xhr = new XMLHttpRequest();
     xhr.open(form.method, form.action);
     updateFormState({ status: FORM_STATUSES.SENDING, response: null });
@@ -89,7 +89,7 @@ const ContactForm = () => {
         <textarea name="message" id="message" rows="4"></textarea>
       </div>
       <div className="field">
-        <HumanVerifier userType={userType} onChange={setUserType} ref={honeypotRef} />
+        <HumanVerifier userType={userType} onChange={setUserType} />
       </div>
       {status === FORM_STATUSES.SUCCESS && <h3>Submission confirmed — thank you!</h3>}
       {status === FORM_STATUSES.ERROR && (
