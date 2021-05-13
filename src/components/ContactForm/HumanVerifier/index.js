@@ -1,1 +1,1 @@
-export { default, USER_TYPE } from './HumanVerifier';
+export { default, USER_TYPE, caughtRobotInHoneypot } from './HumanVerifier';
