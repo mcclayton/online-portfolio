@@ -1,0 +1,2 @@
+(self.webpackChunkmcclayton_github_io=self.webpackChunkmcclayton_github_io||[]).push([[617],{9863:function(e,t,n){"use strict";n.r(t);var c=n(7294),l=n(5444),a=n(4252);t.default=function(){return c.createElement(a.Z,null,c.createElement("h1",null,"Hi from the second page"),c.createElement("p",null,"Welcome to page 2"),c.createElement(l.Link,{to:"/"},"Go back to the homepage"))}}}]);
+//# sourceMappingURL=component---src-pages-page-2-js-95be774580b91b86bb43.js.map
