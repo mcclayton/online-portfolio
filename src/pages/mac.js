@@ -18,8 +18,8 @@ export default class MacInstallPage extends Component {
           }}
         >
           <p>
-            Run the following command in your terminal to setup a new Mac
-            interactively.
+            Run the following command in your terminal to fully configure/setup
+            your Mac.
           </p>
           <p
             style={{
