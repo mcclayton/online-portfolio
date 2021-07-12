@@ -7,6 +7,7 @@ const Spinner = ({ children, ...props }) => (
     <div className={styles.content}>
       <InitialsLogo loader color="#2E333E" strokeWidth={3} />
       <div className={styles.label}>
+        {children}
         <p>{props.label}</p>
       </div>
     </div>
