@@ -1,1 +1,6 @@
-export { default, USER_TYPE, caughtRobotInHoneypot } from './HumanVerifier';
+export {
+  default,
+  USER_TYPE,
+  HoneypotField,
+  caughtRobotInHoneypot,
+} from './HumanVerifier';

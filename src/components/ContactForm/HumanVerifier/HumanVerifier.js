@@ -6,13 +6,16 @@ const cx = classNames.bind(styles);
 export const USER_TYPE = {
   ROBOT: 0,
   HUMAN: 1,
-  NONE: 2
+  NONE: 2,
 };
 
 // Hidden form field designed to catch robots
 const HONEY_POT_FIELD = 'phone';
 
-export function caughtRobotInHoneypot(formData) {
+export function caughtRobotInHoneypot(modified, formData) {
+  if (modified) {
+    return true;
+  }
   for (let pair of formData.entries()) {
     const [key, value] = pair;
     if (key === HONEY_POT_FIELD && !!value) {
@@ -23,6 +26,22 @@ export function caughtRobotInHoneypot(formData) {
   return false;
 }
 
+export const HoneypotField = ({ onChange }) => {
+  return (
+    <div className="field">
+      <input
+        tabIndex="-1"
+        autoComplete="off"
+        className={cx(styles.honeypotField)}
+        type={HONEY_POT_FIELD}
+        name={HONEY_POT_FIELD}
+        id={HONEY_POT_FIELD}
+        onChange={onChange}
+      />
+    </div>
+  );
+};
+
 const HumanVerifier = ({ userType, onChange }) => {
   function handleClick(type) {
     onChange(type);
@@ -32,20 +51,22 @@ const HumanVerifier = ({ userType, onChange }) => {
     <div>
       <label>I am a:</label>
       <div>
-        <span className={cx([styles.userOption], { active: userType ===  USER_TYPE.ROBOT})} onClick={() => handleClick(USER_TYPE.ROBOT)}>
+        <span
+          className={cx([styles.userOption], {
+            active: userType === USER_TYPE.ROBOT,
+          })}
+          onClick={() => handleClick(USER_TYPE.ROBOT)}
+        >
           🤖 Robot
         </span>
-        <span className={cx([styles.userOption], { active: userType ===  USER_TYPE.HUMAN})} onClick={() => handleClick(USER_TYPE.HUMAN)}>
+        <span
+          className={cx([styles.userOption], {
+            active: userType === USER_TYPE.HUMAN,
+          })}
+          onClick={() => handleClick(USER_TYPE.HUMAN)}
+        >
           👀 Human
         </span>
-        <input
-          tabIndex="-1"
-          autoComplete="off"
-          className={cx(styles.honeypotField)}
-          type={HONEY_POT_FIELD}
-          name={HONEY_POT_FIELD}
-          id={HONEY_POT_FIELD}
-        />
       </div>
     </div>
   );
