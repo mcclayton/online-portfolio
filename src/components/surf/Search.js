@@ -3,7 +3,9 @@ import { useState } from 'react';
 import { Link } from 'gatsby';
 import { flatten, pathOr } from 'ramda';
 import { fetchSearchResults, debounce } from './lib/searchUtil';
+import classNames from 'classnames/bind';
 import styles from './search.module.scss';
+const cx = classNames.bind(styles);
 
 const Search = () => {
   const [results, setSearchResults] = useState([]);
@@ -25,7 +27,7 @@ const Search = () => {
         <h3>Search:</h3>
         <input type="text" onChange={onChange} />
       </div>
-      <div className={styles.results}>
+      <div className={cx({ results: results.length > 0 })}>
         {results.map((r) => (
           <Link
             className={styles.searchLink}
