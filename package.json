@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "author": "Michael Clayton",
   "dependencies": {
+    "@babel/runtime": "^7.14.6",
     "classnames": "2.3.1",
     "copy-text-to-clipboard": "^3.0.1",
     "gatsby": "2.32.4",
@@ -11,10 +12,13 @@
     "gatsby-plugin-remove-generator": "^1.0.6",
     "gatsby-plugin-sass": "3.2.0",
     "node-sass": "6.0.0",
+    "query-string": "^7.0.1",
+    "ramda": "^0.27.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-helmet": "6.1.0",
-    "react-hot-toast": "^2.0.0"
+    "react-hot-toast": "^2.0.0",
+    "react-player": "^2.9.0"
   },
   "keywords": [
     "Michael Clayton",
@@ -32,6 +36,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "7.13.0",
     "@babel/plugin-proposal-object-rest-spread": "7.14.2",
+    "@babel/plugin-transform-runtime": "^7.14.5",
     "@babel/preset-env": "7.14.2",
     "@babel/preset-react": "7.13.13",
     "babel-jest": "26.6.3",

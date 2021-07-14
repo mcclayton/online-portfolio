@@ -1,0 +1,24 @@
+.searchContainer {
+  padding: 0 5rem;
+}
+
+.search {
+  padding-bottom: 2rem;
+}
+
+.results {
+  padding-bottom: 2rem;
+}
+
+.searchLink {
+  margin: 0 10px;
+  padding: 5px 10px;
+  border: 1px solid white;
+  border-radius: 3px;
+  transition: opacity 0.3s;
+  -webkit-transition: opacity 0.3s;
+  &:hover {
+    border: 1px solid white;
+    opacity: 0.5;
+  }
+}

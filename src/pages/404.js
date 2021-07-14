@@ -6,11 +6,11 @@ import Spinner from '../components/Spinner';
 const NotFoundPage = () => (
   <Layout>
     <Spinner>
-      <p style={{ fontSize: '24px' }}>
+      <p style={{ fontSize: '20px' }}>
         {'The page you tried to access was not found. '}
       </p>
-      <div>
-        <Link to="/">{'➟ Go Back Home'}</Link>
+      <div style={{ textAlign: 'center' }}>
+        <Link to="/">{'Go Back Home'}</Link>
       </div>
     </Spinner>
   </Layout>
