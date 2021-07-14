@@ -17,6 +17,8 @@ export default class MacInstallPage extends Component {
             flexDirection: 'column',
           }}
         >
+          <img style={{ height: '12rem' }} src="/mac.png" />
+          <h2>Mac Setup</h2>
           <p>
             Run the following command in your terminal to fully configure/setup
             your Mac.
