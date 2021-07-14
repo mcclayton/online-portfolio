@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactPlayer from 'react-player';
+import styles from './surfcam.module.scss';
 
 const SurfCam = ({ streamUrl }) => {
   return (
-    <div className="column">
+    <div className={styles.cameraContainer}>
       <ReactPlayer
         url={streamUrl}
         playing={true}
