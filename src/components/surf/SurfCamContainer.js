@@ -4,6 +4,7 @@ import { useLocation } from '@reach/router';
 import { parse } from 'query-string';
 import SurfCam from './SurfCam';
 import RegionOverviewHelper from './lib/RegionOverviewHelper';
+import styles from './camera.module.scss';
 
 function useStreamUrls(spotId) {
   const [streamUrls, setStremUrls] = useState([]);
@@ -45,10 +46,15 @@ const SurfCamContainer = ({ defaultSpotId }) => {
   }
 
   return (
-    <div className="columns">
+    <div className={styles.cameraContainer}>
       {streamUrls.map((streamUrl, index) => {
         return <SurfCam key={index} streamUrl={streamUrl} />;
       })}
+      {streamUrls.length === 0 && (
+        <h3 className={styles.emptyStream}>{`No streams available for ${
+          spotName || 'this spot'
+        }.`}</h3>
+      )}
     </div>
   );
 };
