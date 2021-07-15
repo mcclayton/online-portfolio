@@ -24,8 +24,12 @@ const Search = () => {
   return (
     <div className={styles.searchContainer}>
       <div className={styles.search}>
-        <h3>Search:</h3>
-        <input type="text" onChange={onChange} />
+        <h2>🌴 🏄‍♂️ 🌊 🌴</h2>
+        <input
+          placeholder="Search Surf Spots"
+          type="text"
+          onChange={onChange}
+        />
       </div>
       <div className={cx({ results: results.length > 0 })}>
         {results.map((r) => (
